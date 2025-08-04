@@ -22,7 +22,7 @@ const slideVariants = {
     transition: {
       y: { type: 'spring', stiffness: 300, damping: 30 },
       opacity: { duration: 0.4 }
-    }
+    } as const
   },
   exit: (direction: number) => ({
     y: direction < 0 ? '100%' : '-100%',
@@ -30,7 +30,7 @@ const slideVariants = {
     transition: {
       y: { type: 'spring', stiffness: 300, damping: 30 },
       opacity: { duration: 0.2 }
-    }
+    } as const
   })
 };
 
