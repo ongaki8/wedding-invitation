@@ -110,7 +110,7 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
             </div>
             <div className="text-white font-ophelia font-bold tracking-widest mt-4">{Math.round(progress)}%</div>
 
-            <div className="absolute bottom-4 text-white/90 text-md font-poppins-light mb-[20%] z-50">
+            <div className="absolute bottom-4 text-white/90 text-md font-poppins-light mb-[5%] z-50">
               <a 
                 href="https://digi.reb.ac" 
                 target="_blank" 
@@ -148,7 +148,7 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
 
       {/* Invitation Card */}
       {!isLoading && !showVideo && (
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 pt-6 pb-10"
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 pt-10 pb-6"
           style={{ backgroundImage: "url('/marble.webp')", backgroundSize: 'cover' }}
         >
           <div className="relative text-center w-full max-w-md mx-6 p-6 rounded-3xl shadow-sm border border-[#0a0a09]/10 overflow-hidden">

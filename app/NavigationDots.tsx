@@ -1,6 +1,7 @@
 'use client';
 import { motion, useAnimation } from 'framer-motion';
 import { Info, Mail, Calendar, Home, Code } from 'react-feather';
+import { Gem, CalendarCheck, Calendar1, CheckCheck, MailOpen } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -14,10 +15,17 @@ interface NavigationDotsProps {
 }
 
 const screenIcons = {
-  invitation: Home,
+  invitation: MailOpen,
   details: Info,
-  rsvp: Mail,
-  date: Calendar
+  rsvp: CheckCheck,
+  date: Calendar1
+};
+
+const screenLabels = {
+  invitation: 'INVITE',
+  details: 'DETAILS',
+  rsvp: 'RSVP',
+  date: 'DATE'
 };
 
 export default function NavigationDots({
@@ -62,7 +70,7 @@ export default function NavigationDots({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="fixed bottom-4 right-4 z-50 flex items-center"
+        className="fixed bottom-4 right-3.5 z-50 flex items-center"
       >
         <motion.div 
           animate={borderControls}
@@ -80,7 +88,7 @@ export default function NavigationDots({
               animate={iconControls}
               style={{ color: 'rgba(255, 255, 255, 0.5)' }}
             >
-              <Code size={16} strokeWidth={2.5} />
+              <Code size={20} strokeWidth={2.5} />
             </motion.span>
           </motion.button>
 
@@ -91,7 +99,7 @@ export default function NavigationDots({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ type: "spring", damping: 20, stiffness: 300 }}
-              className="absolute right-0 bottom-full mb-3 bg-black/90 backdrop-blur-2xl text-gray-100 rounded-xl p-0 shadow-2xl w-70 border-1 border-white/40 overflow-hidden"
+              className="absolute right-0 bottom-full mb-4 bg-black/90 backdrop-blur-2xl text-gray-100 rounded-xl p-0 shadow-2xl w-70 border-1 border-white/40 overflow-hidden"
             >
               {/* Top Banner Image */}
               <div 
@@ -132,9 +140,10 @@ export default function NavigationDots({
         transition={{ delay: 0.5 }}
         className="fixed bottom-3 left-0 right-0 flex justify-center z-40"
       >
-        <div className="flex space-x-4 backdrop-blur-sm bg-black/40 rounded-full px-5 py-3">
+        <div className="flex space-x-4 backdrop-blur-sm bg-black/40 rounded-4xl px-5 py-2">
           {screens.map((screen, index) => {
             const Icon = screenIcons[screen];
+            const label = screenLabels[screen];
             const isActive = currentPage === screen;
             
             return (
@@ -142,15 +151,16 @@ export default function NavigationDots({
                 key={index}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className={`p-1 rounded-full transition-all duration-300 ${isActive ? 'text-white' : 'text-white/50 hover:text-white/70'}`}
+                className={`flex flex-col items-center p-1 rounded-full transition-all duration-300 ${isActive ? 'text-white' : 'text-white/50 hover:text-white/70'}`}
                 onClick={() => setCurrentPage(screen)}
                 aria-label={`Go to ${screen} screen`}
               >
                 <Icon 
-                  size={22} 
+                  size={20} 
                   strokeWidth={isActive ? 2.5 : 2}
                   className="transition-all duration-300"
                 />
+                <span className="text-[10px] font-medium font-poppins-regular">{label}</span>
               </motion.button>
             );
           })}

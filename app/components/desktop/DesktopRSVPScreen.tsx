@@ -51,7 +51,7 @@ export default function DesktopRSVPScreen() {
 
   return (
     <div className="h-full w-full relative flex flex-col items-center justify-center overflow-hidden">
-      {/* Video background */}
+      {/* Video Background */}
       <div className="absolute inset-0">
         <video
           ref={videoRef}
@@ -70,15 +70,13 @@ export default function DesktopRSVPScreen() {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/10 to-white/70"></div>
       
-      {/* Main content */}
+      {/* Main Content */}
       <div className="relative z-10 w-full flex flex-col items-center justify-center h-full px-12">
         <div className="flex flex-col items-center justify-center transform -translate-y-12">
-          {/* "Please" text */}
           <p className="text-4xl font-brittany text-[#0a0a09]/80 tracking-widest mb-16 mt-[10%]">
             Please
           </p>
           
-          {/* Centered RSVP text */}
           <div className="flex flex-col items-center justify-center">
             <div className="text-[16rem] leading-[0.8] tracking-[0.1em] font-bold font-ophelia text-amber-50 text-center">
               <span className="block">RSVP</span>
@@ -127,6 +125,7 @@ export default function DesktopRSVPScreen() {
               
               <form onSubmit={handleSubmit}>
                 <div className="space-y-6 mb-8">
+                  
                   {/* Attendance Selection */}
                   <div className="flex flex-col space-y-4 mb-6">
                     <p className="text-base font-ophelia font-bold text-[#0a0a09]/90 mb-4 text-left">

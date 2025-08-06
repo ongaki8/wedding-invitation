@@ -33,7 +33,7 @@ export default function MobileDateScreen() {
 
   return (
     <div 
-      className="relative h-full w-full flex flex-col p-6 "
+      className="relative h-full w-full flex flex-col px-6 pt-20 pb-6 "
       style={{ backgroundImage: "url('/marble.webp')", backgroundSize: 'cover' }}
     >
       {/* Photos Slideshow */}

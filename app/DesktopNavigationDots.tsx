@@ -1,6 +1,7 @@
 'use client';
 import { motion, useAnimation } from 'framer-motion';
 import { Info, Mail, Calendar, Home, Code } from 'react-feather';
+import { Gem, CalendarCheck, Calendar1, MailOpen, CheckCheck } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -14,14 +15,14 @@ interface NavigationDotsProps {
 }
 
 const screenIcons = {
-  invitation: Home,
+  invitation: MailOpen,
   details: Info,
-  rsvp: Mail,
-  date: Calendar
+  rsvp: CheckCheck,
+  date: Calendar1
 };
 
 const screenLabels = {
-  invitation: 'HOME',
+  invitation: 'INVITE',
   details: 'DETAILS',
   rsvp: 'RSVP',
   date: 'DATE'
