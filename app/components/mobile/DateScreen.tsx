@@ -5,9 +5,14 @@ export default function MobileDateScreen() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
   const venuePhotos = [
-    '/mobile-invitation.webp',
-    '/venue-1.webp',
-    '/venue-1.webp',
+    '/kim-anesu-1.webp',
+    '/kim-anesu-2.webp',
+    '/kim-anesu-3.webp',
+    '/kim-anesu-4.webp',
+    '/kim-anesu-5.webp',
+    '/kim-anesu-6.webp',
+    '/kim-anesu-7.webp',
+    '/kim-anesu-8.webp',
   ];
 
   useEffect(() => {
@@ -24,14 +29,14 @@ export default function MobileDateScreen() {
     return () => clearInterval(interval);
   }, []);
 
-  const section1Height = windowHeight * 0.85; // 85% of screen height
+  const section1Height = windowHeight * 0.85;
 
   return (
     <div 
-      className="relative h-full w-full flex flex-col p-6"
+      className="relative h-full w-full flex flex-col p-6 "
       style={{ backgroundImage: "url('/marble.webp')", backgroundSize: 'cover' }}
     >
-      {/* Section 1: Photos Slideshow */}
+      {/* Photos Slideshow */}
       <div 
         className="relative w-full rounded-3xl overflow-hidden shadow-lg"
         style={{ height: `${section1Height}px` }}
@@ -65,11 +70,11 @@ export default function MobileDateScreen() {
         </div>
       </div>
 
-      {/* Section 2: Date and Couple Names */}
+      {/* Date and Couple Names */}
       <div className="flex-1 w-full flex flex-col items-center justify-start px-6 pt-8 pb-12">
         {/* Date */}
         <h1 
-          className="text-4xl md:text-5xl mb-3 font-ophelia animate-fadeIn opacity-0 text-[#0a0a09]/80" 
+          className="text-4xl md:text-5xl mb-1 font-ophelia animate-fadeIn opacity-0 text-[#0a0a09]/80" 
           style={{ 
             animationDelay: '0.55s', 
             animationFillMode: 'forwards',
@@ -78,47 +83,48 @@ export default function MobileDateScreen() {
           01.01.2026
         </h1>
 
-        {/* Decorative elements */}
+        {/* Elements */}
         <div 
-          className="animate-fadeIn opacity-0 flex items-center space-x-4 mb-8"
+          className="animate-fadeIn opacity-0 flex items-center space-x-4 mb-4"
           style={{ 
             animationDelay: '0.9s', 
             animationFillMode: 'forwards' 
           }}
         >
           <div className="w-16 h-px bg-[#0a0a09]/80"></div>
-          <span className="text-[#0a0a09]/80 text-xl">♥</span>
+          <span className="text-[#0a0a09]/80 text-3xl">♥</span>
           <div className="w-16 h-px bg-[#0a0a09]/80"></div>
         </div>
 
-        {/* Couple names */}
+        {/* Couple Names */}
         <div 
-          className="animate-fadeIn opacity-0 mb-6" 
+          className="animate-fadeIn opacity-0 mb-2" 
           style={{ 
             animationDelay: '0.7s', 
             animationFillMode: 'forwards' 
           }}
         >
-          <p className="text-4xl md:text-5xl font-brittany text-[#e0b553] mb-10">
+          <p className="text-4xl md:text-5xl font-brittany text-[#e0b553] mb-[20%]">
+          {/* <p className="text-4xl md:text-5xl font-brittany text-[#0a0a09]/80 mb-2"> */}
             Kimberly & Anesu
           </p>
         </div>
 
         
 
-        {/* Scroll Down indicator */}
-        {/* <div 
+        {/* Indicator */}
+        <div 
           className="animate-fadeIn opacity-0" 
           style={{ 
             animationDelay: '1.5s', 
             animationFillMode: 'forwards',
           }}
         >
-          <div className="flex flex-col items-center justify-center">
-            <ChevronDown className="text-gray-400 h-8 w-8 animate-bounceReverse mb-2" />
-            <span className="text-sm tracking-widest font-ophelia text-gray-500">Swipe Down</span>
+          <div className="flex flex-col items-center justify-center mb-2">
+            <ChevronDown className="text-gray-400/0 h-8 w-8 animate-bounceReverse mb-2" />
+            <span className="text-sm tracking-widest font-ophelia text-[#0a0a09]/0">See you there</span>
           </div>
-        </div> */}
+        </div>
 
       </div>
 

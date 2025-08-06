@@ -1,4 +1,3 @@
-// DesktopDetailsScreen.tsx
 import { useState, useEffect } from "react";
 import DressCodeSection from "./details/DesktopDressCodeSection";
 import TransportationSection from "./details/DesktopTransportationSection";
@@ -14,7 +13,7 @@ export default function DesktopDetailsScreen() {
   });
 
   useEffect(() => {
-    const duration = 15000; // 15 seconds for full cycle
+    const duration = 15000;
     let animationFrameId: number;
     let startTime: number;
 
@@ -23,17 +22,15 @@ export default function DesktopDetailsScreen() {
       const elapsed = timestamp - startTime;
       const progress = (elapsed % duration) / duration;
       
-      // Zoom animation
       const zoomWave = Math.sin(progress * Math.PI * 2) / 2 + 0.5;
       const easedZoom = Math.pow(zoomWave, 0.7);
       
-      // Pan animation
-      const panWave = Math.sin(progress * Math.PI * 4); // Double frequency
+      const panWave = Math.sin(progress * Math.PI * 4);
       const easedPan = Math.pow(Math.abs(panWave), 0.7) * Math.sign(panWave);
       
       setTransform({
-        scale: 1 + (easedZoom * 0.6), // 100% to 160% zoom
-        translateX: easedPan * 8 // ±8% horizontal movement
+        scale: 1 + (easedZoom * 0.6),
+        translateX: easedPan * 8
       });
 
       animationFrameId = requestAnimationFrame(animate);
@@ -48,9 +45,7 @@ export default function DesktopDetailsScreen() {
 
   return (
     <div className="relative w-full h-full overflow-y-auto">
-      {/* Fixed background elements */}
       <div className="fixed inset-0 z-0">
-        {/* Background image with animation */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -64,23 +59,26 @@ export default function DesktopDetailsScreen() {
           }}
         ></div>
         
-        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
       </div>
 
-      {/* Scrollable content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-8 py-16 text-white min-h-screen">
-        <div className="text-center mb-16">
-          <div className="font-roze text-5xl tracking-widest text-white mt-4">
-            DETAILS
+      {/* Header with blurred background */}
+      <div className="fixed top-0 left-0 right-0 z-20 pt-6 pb-4 backdrop-blur-md border-b-1 border-b-white bg-gradient-to-b from-black/20 via-black/10 to-transparent">
+        <div className="max-w-5xl mx-auto px-12">
+          <div className="text-center">
+            <div className="font-roze font-bold text-4xl tracking-widest text-white">
+              DETAILS
+            </div>
           </div>
-          <div className="mt-6 mx-auto w-32 h-px bg-white/30"></div>
         </div>
+      </div>
 
+      {/* Scrollable Content */}
+      <div className="relative z-10 max-w-5xl mx-auto px-12 pt-32 pb-12 text-white min-h-screen">
         <div className="relative pl-0">
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-white/80"></div>
 
-          <div className="space-y-20 max-w-5xl mx-auto">
+          <div className="space-y-16 mt-[10%]">
             <DressCodeSection 
               selectedColor={selectedColor} 
               setSelectedColor={setSelectedColor} 
@@ -88,12 +86,22 @@ export default function DesktopDetailsScreen() {
             <TransportationSection setShowMapModal={setShowMapModal} />
             <GiftSection />
           </div>
-
         </div>
 
-        <div className="mt-12 mb-26 text-center">
-          <div className="inline-block font-ophelia text-lg text-white tracking-widest">
+        <div className="mt-16 text-center">
+          <div className="inline-block font-roze font-bold text-xl text-white tracking-wider">
             WE CAN'T WAIT TO CELEBRATE WITH YOU
+          </div>
+        </div>
+
+        {/* Scroll Up */}
+        <div className="mt-8 mb-8 relative z-20 opacity-0" 
+              style={{ 
+                animation: 'fadeIn 0.5s ease-in 0.5s forwards, bounce 2s infinite 2.5s' 
+              }}>
+          <div className="flex flex-col items-center justify-center">
+            <ChevronUp className="text-white/80 h-8 w-8" />
+            <span className="text-sm tracking-widest font-ophelia font-bold">Scroll Up</span>
           </div>
         </div>
       </div>
@@ -105,10 +113,18 @@ export default function DesktopDetailsScreen() {
           onClick={() => setSelectedColor(null)}
         >
           <div
-            className="bg-white/95 p-10 rounded-3xl shadow-xl border border-white/10 w-full max-w-xl mx-4 animate-scaleIn"
+            className="relative bg-white/95 p-10 rounded-3xl shadow-xl border border-white/10 max-w-md mx-4 animate-scaleIn"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative">
+            <div 
+              className="absolute inset-0 rounded-3xl opacity-60 z-0"
+              style={{
+                backgroundImage: "url('/desktop-marble.webp')",
+                backgroundSize: "cover",
+              }}
+            />
+            
+            <div className="relative z-10">
               <div 
                 className="w-full h-48 rounded-xl mb-8 shadow-lg border border-white/10 transform transition-transform hover:scale-[1.02]"
                 style={{ 
@@ -117,19 +133,17 @@ export default function DesktopDetailsScreen() {
                 }}
               ></div>
               
-              <h3 className="font-roze text-2xl text-center uppercase tracking-wider text-black mb-4">
+              <h3 className="font-roze text-2xl font-bold text-center uppercase tracking-wider text-[#0a0a09]/80 mb-4">
                 {selectedColor.name}
               </h3>
-              <div className="text-center">
-                <p className="font-ophelia text-base text-black mb-6 border border-black rounded-xl px-6 py-3 inline-block">
-                  Suggested wedding attire color
-                </p>
-              </div>
+              <p className="font-classyvogue text-base text-center text-[#0a0a09]/80 mb-6 border border-[#0a0a09]/80 rounded-xl px-6 py-3 inline-block">
+                Suggested wedding attire color
+              </p>
               
               <div className="flex justify-center">
                 <button 
                   onClick={() => setSelectedColor(null)}
-                  className="px-8 py-3 bg-black text-white rounded-xl text-base font-roze tracking-wider hover:bg-black/90 transition-colors focus:outline-none focus:ring-2 focus:ring-black/50 cursor-pointer"
+                  className="px-8 py-3 bg-[#0a0a09] text-white rounded-xl text-base font-classyvogue font-bold tracking-widest hover:bg-[#0a0a09]/90 transition-colors focus:outline-none focus:ring-2 focus:ring-black/50 cursor-pointer"
                 >
                   GOT IT
                 </button>
@@ -142,34 +156,42 @@ export default function DesktopDetailsScreen() {
       {/* Map Modal */}
       {showMapModal && (
         <div
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-30 animate-fadeIn"
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-30 animate-fadeIn p-6"
           onClick={() => setShowMapModal(false)}
         >
           <div
-            className="bg-white/95 p-12 rounded-3xl shadow-xl border border-white/10 w-full max-w-4xl mx-4 animate-scaleIn"
+            className="relative bg-white/95 p-10 rounded-3xl shadow-xl border border-white/10 w-full max-w-4xl mx-4 animate-scaleIn"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative">
-              <div className="text-center mb-4">
-                <h3 className="font-roze text-2xl uppercase tracking-wider text-black">
+            <div 
+              className="absolute inset-0 rounded-3xl opacity-60 z-0"
+              style={{
+                backgroundImage: "url('/desktop-marble.webp')",
+                backgroundSize: "cover",
+              }}
+            />
+            
+            <div className="relative z-10">
+              <div className="text-center mb-6">
+                <h3 className="font-roze text-2xl font-bold uppercase tracking-wider text-[#0a0a09]/80">
                   HOW TO GET THERE
                 </h3>
-                <div className="w-40 h-px bg-[#0a0a09]/50 mx-auto mt-4 mb-10"></div>
+                <div className="w-40 h-px bg-[#0a0a09]/40 mx-auto mt-4 mb-8"></div>
               </div>
               
-              <div className="flex flex-col md:flex-row gap-8 mb-6">
-                <div className="w-full md:w-1/2 rounded-xl overflow-hidden border border-white/10 bg-black">
+              <div className="flex flex-col lg:flex-row gap-8 mb-6">
+                <div className="w-full lg:w-1/2 rounded-xl overflow-hidden border border-[#0a0a09]/10 bg-[#0a0a09]">
                   <img 
-                    src="/directions-1.webp" 
+                    src="/directions-white.webp" 
                     alt="Wedding venue directions"
-                    className="w-full h-full object-cover"
+                    className="w-full h-auto object-cover"
                   />
                   <div className="flex justify-center p-4">
                     <span className="text-lg font-roze text-white tracking-widest">VENUE UMWINZII</span>
                   </div>
                 </div>
                 
-                <div className="w-full md:w-1/2 aspect-video rounded-xl overflow-hidden border border-white/10">
+                <div className="w-full lg:w-1/2 aspect-video rounded-xl overflow-hidden border border-[#0a0a09]/10">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.567038939592!2d31.1818402!3d-17.7250374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931b73acc5a7e19%3A0x32f6164b2084aba5!2sVenue%20Umwinzii!5e0!3m2!1sen!2s!4v1722432000000!5m2!1sen!2s"
                     width="100%"
@@ -185,7 +207,7 @@ export default function DesktopDetailsScreen() {
               <div className="flex justify-center">
                 <button 
                   onClick={() => setShowMapModal(false)}
-                  className="px-8 py-3 mt-4 bg-black text-white rounded-xl text-base font-roze tracking-wider hover:bg-black/90 transition-colors focus:outline-none focus:ring-2 focus:ring-black/50 cursor-pointer"
+                  className="px-8 py-3 bg-[#0a0a09] text-white rounded-xl text-base font-classyvogue font-bold tracking-widest hover:bg-[#0a0a09]/90 transition-colors focus:outline-none focus:ring-2 focus:ring-black/50 cursor-pointer"
                 >
                   CLOSE MAP
                 </button>

@@ -40,8 +40,40 @@
 }
 
 @font-face {
+  font-family: 'ClassyVogue';
+  src: url('/fonts/ClassyVogue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Ophelia';
   src: url('/fonts/OPHELIA.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PoppinsLight';
+  src: url('/fonts/PoppinsLight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PoppinsRegular';
+  src: url('/fonts/PoppinsRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RealifeMoment';
+  src: url('/fonts/RealifeMoment.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -77,8 +109,20 @@
 .font-castilla {
   font-family: 'BritishCastilla', cursive;
 }
+.font-classyvogue {
+  font-family: 'ClassyVogue', serif;
+}
 .font-ophelia {
   font-family: 'Ophelia', serif;
+}
+.font-poppins-light {
+  font-family: 'PoppinsLight', sans-serif;
+}
+.font-poppins-regular {
+  font-family: 'PoppinsRegular', sans-serif;
+}
+.font-realife {
+  font-family: 'RealifeMoment', serif;
 }
 .font-rosaline {
   font-family: 'Rosaline', serif;
@@ -135,5 +179,5 @@ html {
 
 .animate-zoomPan {
   animation: zoomPan infinite ease-in-out;
-  will-change: transform; /* Improves performance */
+  will-change: transform;
 }

@@ -1,12 +1,16 @@
-import { ChevronDown } from 'react-feather';
 import { useState, useEffect } from 'react';
 
 export default function DesktopDateScreen() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const venuePhotos = [
-    '/mobile-invitation.webp',
-    '/venue-1.webp',
-    '/venue-1.webp',
+    '/desktop-kim-anesu-1.webp',
+    '/desktop-kim-anesu-2.webp',
+    '/desktop-kim-anesu-3.webp',
+    '/desktop-kim-anesu-4.webp',
+    '/desktop-kim-anesu-5.webp',
+    '/desktop-kim-anesu-6.webp',
+    '/desktop-kim-anesu-7.webp',
+    '/desktop-kim-anesu-8.webp',
   ];
 
   useEffect(() => {
@@ -22,7 +26,7 @@ export default function DesktopDateScreen() {
       style={{ backgroundImage: "url('/desktop-marble.webp')", backgroundSize: 'cover' }}
     >
       {/* Left Section: Photos Slideshow */}
-      <div className="relative w-1/2 h-full rounded-3xl overflow-hidden shadow-lg mr-8">
+      <div className="relative w-1/2 h-full rounded-3xl overflow-hidden shadow-lg mr-12">
         {/* Blurred background */}
         <div 
           className="absolute inset-0 bg-cover bg-center blur-lg scale-110 transition-all duration-1000"
@@ -33,15 +37,15 @@ export default function DesktopDateScreen() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-transparent"></div>
         
         {/* Current slide */}
-        <div className="relative z-10 h-full w-full flex items-center justify-center p-18 transition-opacity duration-1000">
+        <div className="relative z-10 h-full w-full flex items-center justify-center p-12 transition-opacity duration-1000">
           <div 
-            className="h-full w-full max-w-2xl bg-cover bg-center rounded-xl shadow-lg transition-all duration-500 hover:scale-[1.02]"
+            className="h-full w-full max-w-2xl bg-cover bg-center rounded-xl shadow-lg transition-all duration-500 hover:scale-[1.02] cursor-pointer"
             style={{ backgroundImage: `url('${venuePhotos[currentSlide]}')` }}
           ></div>
         </div>
         
         {/* Slide indicators */}
-        <div className="absolute bottom-9 left-0 right-0 z-20 flex justify-center gap-2">
+        <div className="absolute bottom-5 left-0 right-0 z-20 flex justify-center gap-2">
           {venuePhotos.map((_, index) => (
             <button
               key={index}
@@ -56,7 +60,7 @@ export default function DesktopDateScreen() {
       <div className="w-1/2 h-full flex flex-col items-center justify-center px-12">
         {/* Date */}
         <h1 
-          className="text-6xl mb-6 font-ophelia animate-fadeIn opacity-0 text-[#0a0a09]/80" 
+          className="text-7xl mb-8 font-ophelia animate-fadeIn opacity-0 text-[#0a0a09]/80" 
           style={{ 
             animationDelay: '0.55s', 
             animationFillMode: 'forwards',
@@ -67,15 +71,15 @@ export default function DesktopDateScreen() {
 
         {/* Decorative elements */}
         <div 
-          className="animate-fadeIn opacity-0 flex items-center space-x-6 mb-12"
+          className="animate-fadeIn opacity-0 flex items-center space-x-8 mb-12"
           style={{ 
             animationDelay: '0.9s', 
             animationFillMode: 'forwards' 
           }}
         >
-          <div className="w-24 h-px bg-[#0a0a09]/80"></div>
-          <span className="text-[#0a0a09]/80 text-2xl">♥</span>
-          <div className="w-24 h-px bg-[#0a0a09]/80"></div>
+          <div className="w-32 h-px bg-[#0a0a09]/80"></div>
+          <span className="text-[#0a0a09]/80 text-3xl">♥</span>
+          <div className="w-32 h-px bg-[#0a0a09]/80"></div>
         </div>
 
         {/* Couple names */}
@@ -86,7 +90,7 @@ export default function DesktopDateScreen() {
             animationFillMode: 'forwards' 
           }}
         >
-          <p className="text-6xl font-brittany text-[#e0b553]">
+          <p className="text-7xl font-brittany text-[#e0b553]">
             Kimberly & Anesu
           </p>
         </div>
@@ -98,16 +102,8 @@ export default function DesktopDateScreen() {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes bounceReverse {
-          0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-          40% { transform: translateY(8px); }
-          60% { transform: translateY(4px); }
-        }
         .animate-fadeIn {
           animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        .animate-bounceReverse {
-          animation: bounceReverse 2s infinite;
         }
       `}</style>
     </div>

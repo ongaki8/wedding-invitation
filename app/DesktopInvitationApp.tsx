@@ -1,4 +1,3 @@
-// DesktopInvitationApp.tsx
 'use client';
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,6 +6,7 @@ import DesktopDetailsScreen from './components/desktop/DesktopDetailsScreen';
 import DesktopRSVPScreen from './components/desktop/DesktopRSVPScreen';
 import DesktopDateScreen from './components/desktop/DesktopDateScreen';
 import DesktopNavigationDots from './DesktopNavigationDots';
+import DesktopVideoIntroScreen from './components/desktop/DesktopVideoIntroScreen';
 
 type Screen = 'invitation' | 'details' | 'rsvp' | 'date';
 
@@ -40,6 +40,7 @@ const fadeVariants = {
 };
 
 export default function DesktopInvitationApp() {
+  const [showIntro, setShowIntro] = useState(true);
   const [currentPage, setCurrentPage] = useState<Screen>('invitation');
   const [direction, setDirection] = useState(0);
   const currentPageRef = useRef(currentPage);
@@ -58,40 +59,52 @@ export default function DesktopInvitationApp() {
 
   return (
     <div className="h-full w-full relative">
-      <AnimatePresence custom={direction} initial={false}>
-        <motion.div
-          key={currentPage}
-          custom={direction}
-          variants={slideVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          className="absolute inset-0"
-        >
-          {currentPage === 'invitation' && (
-            <motion.div initial="hidden" animate="visible" variants={fadeVariants} className="h-full">
-              <DesktopInvitationScreen />
-            </motion.div>
-          )}
-          {currentPage === 'details' && (
-            <motion.div initial="hidden" animate="visible" variants={fadeVariants} className="h-full">
-              <DesktopDetailsScreen />
-            </motion.div>
-          )}
-          {currentPage === 'rsvp' && (
-            <motion.div initial="hidden" animate="visible" variants={fadeVariants} className="h-full">
-              <DesktopRSVPScreen />
-            </motion.div>
-          )}
-          {currentPage === 'date' && (
-            <motion.div initial="hidden" animate="visible" variants={fadeVariants} className="h-full">
-              <DesktopDateScreen />
-            </motion.div>
-          )}
-        </motion.div>
+      {/* Video Intro Screen */}
+      <AnimatePresence>
+        {showIntro && (
+          <DesktopVideoIntroScreen onComplete={() => setShowIntro(false)} />
+        )}
       </AnimatePresence>
 
-      <DesktopNavigationDots currentPage={currentPage} setCurrentPage={navigate} screens={screens} />
+      {/* Main App Screens */}
+      {!showIntro && (
+        <>
+          <AnimatePresence custom={direction} initial={false}>
+            <motion.div
+              key={currentPage}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="absolute inset-0"
+            >
+              {currentPage === 'invitation' && (
+                <motion.div initial="hidden" animate="visible" variants={fadeVariants} className="h-full">
+                  <DesktopInvitationScreen />
+                </motion.div>
+              )}
+              {currentPage === 'details' && (
+                <motion.div initial="hidden" animate="visible" variants={fadeVariants} className="h-full">
+                  <DesktopDetailsScreen />
+                </motion.div>
+              )}
+              {currentPage === 'rsvp' && (
+                <motion.div initial="hidden" animate="visible" variants={fadeVariants} className="h-full">
+                  <DesktopRSVPScreen />
+                </motion.div>
+              )}
+              {currentPage === 'date' && (
+                <motion.div initial="hidden" animate="visible" variants={fadeVariants} className="h-full">
+                  <DesktopDateScreen />
+                </motion.div>
+              )}
+            </motion.div>
+          </AnimatePresence>
+
+          <DesktopNavigationDots currentPage={currentPage} setCurrentPage={navigate} screens={screens} />
+        </>
+      )}
     </div>
   );
 }

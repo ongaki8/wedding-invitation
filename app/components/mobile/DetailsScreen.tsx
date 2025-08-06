@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import DressCodeSection from "./details/DressCodeSection";
 import TransportationSection from "./details/TransportationSection";
 import GiftSection from "./details/GiftSection";
-import { ChevronUp } from 'react-feather';
+import { ChevronUp, ChevronDown } from 'react-feather';
 
 export default function MobileDetailsScreen() {
   const [selectedColor, setSelectedColor] = useState<{code: string, name: string} | null>(null);
@@ -13,7 +13,7 @@ export default function MobileDetailsScreen() {
   });
 
   useEffect(() => {
-    const duration = 15000; // 15 seconds for full cycle
+    const duration = 15000;
     let animationFrameId: number;
     let startTime: number;
 
@@ -53,7 +53,7 @@ export default function MobileDetailsScreen() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/venue-1.webp')",
-            backgroundSize: "cover",
+            backgroundSize: "100% 100%",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",
             transform: `scale(${transform.scale}) translateX(${transform.translateX}%)`,
@@ -66,19 +66,24 @@ export default function MobileDetailsScreen() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
       </div>
 
-      {/* Scrollable content */}
-      <div className="relative z-10 max-w-md mx-auto px-6 py-12 text-white min-h-screen">
-        <div className="text-center mb-12">
-          <div className="font-roze text-4xl tracking-widest text-white mt-1">
-            DETAILS
+      {/* Header with blurred background */}
+      <div className="fixed top-0 left-0 right-0 z-20 pt-4 pb-2 backdrop-blur-md border-b-1 border-b-white bg-gradient-to-b from-black/20 via-black/10 to-transparent">
+        <div className="max-w-md mx-auto px-6">
+          <div className="text-center">
+            <div className="font-roze font-bold text-3xl tracking-widest text-white">
+              DETAILS
+            </div>
+            {/* <div className="mt-4 mx-auto w-24 h-px bg-white/30"></div> */}
           </div>
-          <div className="mt-4 mx-auto w-24 h-px bg-white/30"></div>
         </div>
+      </div>
 
+      {/* Scrollable Content */}
+      <div className="relative z-10 max-w-md mx-auto px-6 pt-24 pb-12 text-white min-h-screen">
         <div className="relative pl-0">
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-white/80"></div>
 
-          <div className="space-y-16">
+          <div className="space-y-16 mt-[10%]">
             <DressCodeSection 
               selectedColor={selectedColor} 
               setSelectedColor={setSelectedColor} 
@@ -89,21 +94,36 @@ export default function MobileDetailsScreen() {
         </div>
 
         <div className="mt-10 text-center">
-          <div className="inline-block font-ophelia text-sm text-white tracking-widest">
+          <div className="inline-block font-roze font-bold text-sm text-white tracking-wider">
             WE CAN'T WAIT TO CELEBRATE WITH YOU
           </div>
         </div>
 
-        {/* Swipe Up */}
+        {/* Scroll Up */}
         <div className="mt-4 mb-8 relative z-20 opacity-0" 
               style={{ 
                 animation: 'fadeIn 0.5s ease-in 0.5s forwards, bounce 2s infinite 2.5s' 
               }}>
           <div className="flex flex-col items-center justify-center">
             <ChevronUp className="text-white/80 h-6 w-6" />
-            <span className="text-xs tracking-widest font-ophelia mb-1">Swipe Up</span>
+            <span className="text-xs tracking-widest font-ophelia font-bold mb-[10%]">Scroll Up</span>
           </div>
         </div>
+
+        {/* Scroll Down indicator */}
+        <div 
+          className="animate-fadeIn opacity-0" 
+          style={{ 
+            animationDelay: '1.5s', 
+            animationFillMode: 'forwards',
+          }}
+        >
+          <div className="flex flex-col items-center justify-center mb-2">
+            <ChevronDown className="text-gray-400/0 h-8 w-8 animate-bounceReverse mb-2" />
+            <span className="text-sm tracking-widest font-ophelia text-[#0a0a09]/0">See you there</span>
+          </div>
+        </div>
+        
       </div>
 
       {/* Color Modal */}
@@ -113,32 +133,45 @@ export default function MobileDetailsScreen() {
           onClick={() => setSelectedColor(null)}
         >
           <div
-            className="bg-white/95 p-8 rounded-3xl shadow-xl border border-white/10 max-w-xs mx-4 animate-scaleIn"
+            className="relative bg-white/95 p-8 rounded-3xl shadow-xl border border-white/10 max-w-xs mx-4 animate-scaleIn"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative">
-              <div 
-                className="w-full h-32 rounded-xl mb-6 shadow-lg border border-white/10 transform transition-transform hover:scale-[1.02]"
-                style={{ 
-                  backgroundColor: selectedColor.code,
-                  boxShadow: `0 10px 30px -5px ${selectedColor.code}40`
-                }}
-              ></div>
-              
-              <h3 className="font-roze text-xl text-center uppercase tracking-wider text-black mb-2">
-                {selectedColor.name}
-              </h3>
-              <p className="font-ophelia text-sm text-black mb-4 border border-black rounded-xl px-4 py-2 inline-block">
-                Suggested wedding attire color
-              </p>
-              
-              <div className="flex justify-center">
-                <button 
-                  onClick={() => setSelectedColor(null)}
-                  className="px-6 py-2 bg-black text-white rounded-xl text-sm font-roze tracking-wider hover:bg-black/90 transition-colors focus:outline-none focus:ring-2 focus:ring-black/50"
-                >
-                  GOT IT
-                </button>
+            {/* Marble background */}
+            <div 
+              className="absolute inset-0 rounded-3xl opacity-60 z-0"
+              style={{
+                backgroundImage: "url('/marble.webp')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat"
+              }}
+            />
+            
+            <div className="relative z-10">
+              <div className="relative">
+                <div 
+                  className="w-full h-32 rounded-xl mb-6 shadow-lg border border-white/10 transform transition-transform hover:scale-[1.02]"
+                  style={{ 
+                    backgroundColor: selectedColor.code,
+                    boxShadow: `0 10px 30px -5px ${selectedColor.code}40`
+                  }}
+                ></div>
+                
+                <h3 className="font-roze font-bold text-xl text-center uppercase tracking-wider text-[#0a0a09]/80 mb-3">
+                  {selectedColor.name}
+                </h3>
+                <p className="font-classyvogue text-sm text-[#0a0a09]/80 mb-5 border border-[#0a0a09]/80 rounded-xl px-4 py-2 inline-block">
+                  Suggested wedding attire color
+                </p>
+                
+                <div className="flex justify-center">
+                  <button 
+                    onClick={() => setSelectedColor(null)}
+                    className="px-6 py-2 bg-[#0a0a09] text-white rounded-xl text-sm font-classyvogue font-bold tracking-widest hover:bg-black/90 transition-colors focus:outline-none focus:ring-2 focus:ring-black/50"
+                  >
+                    GOT IT
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -152,26 +185,38 @@ export default function MobileDetailsScreen() {
           onClick={() => setShowMapModal(false)}
         >
           <div
-            className="bg-white/95 p-6 rounded-3xl shadow-xl border border-white/10 w-full max-w-md mx-4 animate-scaleIn"
+            className="relative bg-white/95 p-6 rounded-3xl shadow-xl border border-white/10 w-full max-w-md mx-4 animate-scaleIn"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative">
+            {/* Marble background */}
+            <div 
+              className="absolute inset-0 rounded-3xl opacity-60 z-0"
+              style={{
+                backgroundImage: "url('/marble.webp')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat"
+              }}
+            />
+            
+            <div className="relative z-10">
               <div className="text-center mb-2">
-                <h3 className="font-roze text-xl uppercase tracking-wider text-black">
+                <h3 className="font-roze text-xl font-bold uppercase tracking-wider text-[#0a0a09]/80">
                   HOW TO GET THERE
                 </h3>
+                <div className="w-30 h-px bg-[#0a0a09]/40 mx-auto mt-2 mb-4"></div>
               </div>
               
-              <div className="w-full rounded-xl overflow-hidden mb-4 border border-white/10 bg-black">
+              <div className="w-full rounded-xl overflow-hidden mb-4 border border-white/10 bg-[#0a0a09]">
                 <img 
-                  src="/directions-1.webp" 
+                  src="/directions-white.webp" 
                   alt="Wedding venue directions"
                   className="w-full h-auto object-cover"
                 />
 
                 <div className="flex justify-center space-x-6 mb-2">
                   <div className="flex items-center mt-2">
-                    <span className="text-sm font-roze text-white tracking-widest">VENUE UMWINZII</span>
+                    <span className="text-sm font-classyvogue font-bold text-white tracking-widest">VENUE UMWINZII</span>
                   </div>
                 </div>
               </div>
@@ -191,7 +236,7 @@ export default function MobileDetailsScreen() {
               <div className="flex justify-center">
                 <button 
                   onClick={() => setShowMapModal(false)}
-                  className="px-6 py-2 mt-3 bg-black text-white rounded-xl text-sm font-roze tracking-wider hover:bg-black/90 transition-colors focus:outline-none focus:ring-2 focus:ring-black/50"
+                  className="px-6 py-2 mt-3 bg-[#0a0a09] text-white rounded-xl text-sm font-classyvogue tracking-wider font-bold hover:bg-black/90 transition-colors focus:outline-none focus:ring-2 focus:ring-black/50"
                 >
                   CLOSE MAP
                 </button>

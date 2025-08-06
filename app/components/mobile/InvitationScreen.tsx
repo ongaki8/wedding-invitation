@@ -9,7 +9,7 @@ export default function MobileInvitationScreen() {
   });
 
   useEffect(() => {
-    const duration = 15000; // 15 seconds for full cycle
+    const duration = 15000;
     let animationFrameId: number;
     let startTime: number;
 
@@ -18,12 +18,12 @@ export default function MobileInvitationScreen() {
       const elapsed = timestamp - startTime;
       const progress = (elapsed % duration) / duration;
       
-      // Zoom animation (original)
+      // Zoom Animation
       const zoomWave = Math.sin(progress * Math.PI * 2) / 2 + 0.5;
       const easedZoom = Math.pow(zoomWave, 0.7);
       
-      // Pan animation (new)
-      const panWave = Math.sin(progress * Math.PI * 4); // Double frequency
+      // Pan Animation
+      const panWave = Math.sin(progress * Math.PI * 4);
       const easedPan = Math.pow(Math.abs(panWave), 0.7) * Math.sign(panWave);
       
       setTransform({
@@ -43,9 +43,9 @@ export default function MobileInvitationScreen() {
 
   return (
     <div className="relative h-full w-full flex items-end justify-center pb-10">
-      {/* Background image with combined effects */}
+      {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center "
         style={{
           backgroundImage: "url('/venue-2.webp')",
           backgroundSize: "cover",
@@ -57,7 +57,7 @@ export default function MobileInvitationScreen() {
         }}
       ></div>
 
-      {/* Dark overlay gradient */}
+      {/* Dark Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
 
       {/* Content */}
@@ -68,7 +68,7 @@ export default function MobileInvitationScreen() {
           TOGETHER WITH THEIR FAMILIES
         </p>
 
-        <h1 className="text-4xl md:text-xl mb-6 font-ophelia animate-fadeIn opacity-0" 
+        <h1 className="text-4xl md:text-xl mb-6 font-ophelia font-bold animate-fadeIn opacity-0" 
           style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}
         >
           KIMBERLY{" "}
@@ -86,25 +86,25 @@ export default function MobileInvitationScreen() {
           TO THEIR WEDDING CELEBRATION
         </p>
 
-        <div className="grid grid-cols-3 gap-6 items-center max-w-sm mx-auto mb-6">
+        <div className="grid grid-cols-3 gap-6 items-center max-w-sm mx-auto mb-[25%]">
           <div className="flex flex-col justify-center items-center border-t border-b border-white/60 py-2 animate-fadeIn opacity-0" style={{ animationDelay: '0.85s', animationFillMode: 'forwards' }}>
-            <span className="uppercase text-sm tracking-widest font-ophelia">
+            <span className="uppercase text-sm tracking-widest font-ophelia font-bold">
               Saturday
             </span>
           </div>
 
           <div className="flex flex-col items-center animate-fadeIn opacity-0" style={{ animationDelay: '0.85s', animationFillMode: 'forwards' }}>
-            <span className="uppercase text-md tracking-widest font-ophelia">
+            <span className="uppercase text-md tracking-widest font-ophelia font-bold">
               January
             </span>
-            <span className="text-4xl font-ophelia leading-none mt-1">01</span>
-            <span className="uppercase text-xl tracking-widest font-ophelia">
+            <span className="text-4xl font-ophelia font-bold leading-none mt-1">01</span>
+            <span className="uppercase text-xl tracking-widest font-ophelia font-bold">
               2026
             </span>
           </div>
 
           <div className="flex flex-col justify-center items-center border-t border-b border-white/60 py-2 animate-fadeIn opacity-0" style={{ animationDelay: '0.85s', animationFillMode: 'forwards' }}>
-            <span className="uppercase text-md tracking-widest font-ophelia">
+            <span className="uppercase text-md tracking-widest font-ophelia font-bold">
               At 3:30 PM
             </span>
           </div>

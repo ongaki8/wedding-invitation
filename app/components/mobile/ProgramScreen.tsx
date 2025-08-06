@@ -55,15 +55,16 @@ export default function MobileProgramScreen() {
       <div className="relative z-10 max-w-md mx-auto px-6 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          {/* <div className="font-brittany text-4xl text-[#0a0a09] tracking-tight">The</div> */}
+          
           <div className="font-roze text-4xl tracking-widest text-[#0a0a09] mt-1">
             PROGRAM
           </div>
           <div className="mt-4 mx-auto w-24 h-px bg-[#0a0a09]/30"></div>
         </div>
 
-        {/* Centered Timeline with alternating items */}
+        {/* Centered Timeline */}
         <div className="relative">
+
           {/* Vertical line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-px bg-[#0a0a09]/20"></div>
 
@@ -71,15 +72,15 @@ export default function MobileProgramScreen() {
           <div className="space-y-12 pb-8">
             {timeline.map((item, index) => (
               <div key={index} className="relative w-full">
-                {/* Dot on the timeline */}
+
+                {/* Dot on timeline */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-[#0a0a09] rounded-full top-1/2 z-20"></div>
 
-                {/* Icon container - now on opposite side of text box */}
+                {/* Icon Container */}
                 <div className={`absolute ${index % 2 === 0 ? 'left-1/2 ml-4' : 'right-1/2 mr-6'} top-1/2 transform -translate-y-1/2 z-10`}>
                   {item.icon}
                 </div>
 
-                {/* Text boxes remain in original position */}
                 <div className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
                   <div className={`max-w-[45%] bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-sm border border-[#0a0a09]/10 ${index % 2 === 0 ? 'mr-6' : 'ml-6'}`}>
                     <div className="flex flex-col items-center">

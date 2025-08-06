@@ -1,4 +1,3 @@
-// DesktopRSVPScreen.tsx
 import { useState, useRef, useEffect } from "react";
 
 export default function DesktopRSVPScreen() {
@@ -26,7 +25,6 @@ export default function DesktopRSVPScreen() {
     setShowForm(false);
   };
 
-  // Close modal when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
@@ -43,7 +41,6 @@ export default function DesktopRSVPScreen() {
     };
   }, [showForm]);
 
-  // Auto-play video
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(error => {
@@ -53,8 +50,8 @@ export default function DesktopRSVPScreen() {
   }, []);
 
   return (
-    <div className="h-full w-full relative flex flex-col items-center justify-center p-8 overflow-hidden">
-      {/* Video background with fallback */}
+    <div className="h-full w-full relative flex flex-col items-center justify-center overflow-hidden">
+      {/* Video background */}
       <div className="absolute inset-0">
         <video
           ref={videoRef}
@@ -63,37 +60,38 @@ export default function DesktopRSVPScreen() {
           loop
           muted
           playsInline
-          poster="/rsvp.webp"
+          poster="/DesktopRSVP.webp"
         >
           <source src="/rings-desktop.mp4" type="video/mp4" />
-          <img src="/rsvp.webp" alt="Wedding background" className="h-full w-full object-cover" />
+          <img src="/DesktopRSVP.webp" alt="RSVP Background" className="h-full w-full object-cover" />
         </video>
       </div>
       
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-black/5 to-black/5"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/10 to-white/70"></div>
       
       {/* Main content */}
-      <div className="relative z-10 w-full flex flex-col items-center justify-center">
-        <p className="text-5xl mb-12 font-brittany text-[#0a0a09]/80 tracking-widest">
-          Please
-        </p>
-        
-        <div className="my-16">
-          <div className="text-[16rem] leading-[0.8] tracking-[0.1em] font-bold font-ophelia text-amber-50">
-            <span className="block">RSVP</span>
-            {/* <span className="block">VP</span> */}
-          </div>
-          <p className="text-3xl mt-12 font-ophelia text-[#0a0a09]/80 text-center tracking-wider">
-            By 10 October
+      <div className="relative z-10 w-full flex flex-col items-center justify-center h-full px-12">
+        <div className="flex flex-col items-center justify-center transform -translate-y-12">
+          {/* "Please" text */}
+          <p className="text-4xl font-brittany text-[#0a0a09]/80 tracking-widest mb-16 mt-[10%]">
+            Please
           </p>
-        </div>
-        
-        {/* Centered RSVP button */}
-        <div className="w-full flex justify-center">
+          
+          {/* Centered RSVP text */}
+          <div className="flex flex-col items-center justify-center">
+            <div className="text-[16rem] leading-[0.8] tracking-[0.1em] font-bold font-ophelia text-amber-50 text-center">
+              <span className="block">RSVP</span>
+            </div>
+            <p className="text-3xl font-ophelia text-[#0a0a09]/80 tracking-wider mt-8">
+              By 10 October
+            </p>
+          </div>
+          
+          {/* RSVP button */}
           <button
             onClick={() => setShowForm(true)}
-            className="px-12 py-4 rounded-full bg-transparent border-2 border-[#0a0a09]/80 text-[#0a0a09]/80 hover:bg-[#e0b553]/20 transition-all duration-300 font-ophelia tracking-wider text-xl flex items-center justify-center cursor-pointer"
+            className="px-12 py-4 rounded-full bg-transparent border-2 border-[#0a0a09]/80 text-[#0a0a09]/80 hover:bg-[#e0b553]/60 hover:border-[#e0b553]/80 hover:text-white transition-all duration-300 font-classyvogue font-bold tracking-wider text-xl mt-8 mb-[5%] cursor-pointer"
           >
             RSVP NOW
           </button>
@@ -102,121 +100,134 @@ export default function DesktopRSVPScreen() {
       
       {/* RSVP Form Modal */}
       {showForm && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-6 animate-fadeIn">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fadeIn">
           <div 
             ref={modalRef}
-            className="bg-white/95 rounded-2xl shadow-xl max-w-3xl w-full p-8 animate-scaleIn max-h-[90vh] overflow-y-auto"
+            className="relative bg-white/95 rounded-2xl shadow-xl max-w-2xl w-full p-8 animate-scaleIn max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="text-center mb-8">
-              <h3 className="font-roze text-3xl text-[#0a0a09] tracking-wider mb-4">
-                RSVP FORM
-              </h3>
-              <div className="w-20 h-px bg-[#0a0a09]/30 mx-auto"></div>
-            </div>
+            {/* Marble Background */}
+            <div 
+              className="absolute inset-0 rounded-2xl opacity-50 z-0"
+              style={{
+                backgroundImage: "url('/desktop-marble.webp')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
             
-            <form onSubmit={handleSubmit}>
-              <div className="space-y-6 mb-8">
-                {/* Attendance Selection with Gold Radio Buttons */}
-                <div className="flex flex-col space-y-4 mb-6">
-                  <p className="text-base font-ophelia text-[#0a0a09] mb-4 text-left">
-                    Will you be attending?
-                  </p>
-                  <div className="flex items-center space-x-8">
-                    <label className="flex items-center gap-3">
-                      <input
-                        type="radio"
-                        name="attending"
-                        value="yes"
-                        checked={formData.attending === "yes"}
-                        onChange={handleInputChange}
-                        className="h-5 w-5 border border-[#0a0a09]/80 focus:ring-0 focus:ring-offset-0 text-[#e0b553] cursor-pointer"
-                      />
-                      <span className="font-ophelia text-[#0a0a09]/80 text-lg">Yes, with joy!</span>
-                    </label>
-                    <label className="flex items-center gap-3">
-                      <input
-                        type="radio"
-                        name="attending"
-                        value="no"
-                        checked={formData.attending === "no"}
-                        onChange={handleInputChange}
-                        className="h-5 w-5 border border-[#0a0a0999] focus:ring-0 focus:ring-offset-0 text-[#e0b553] cursor-pointer"
-                      />
-                      <span className="font-ophelia text-[#0a0a09]/80 text-lg">Regretfully, No.</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* Name Field */}
-                <div>
-                  <label htmlFor="name" className="block text-base font-ophelia text-[#0a0a09] mb-2 text-left">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 py-3 rounded-lg border border-[#0a0a0999] focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-ophelia text-[#0a0a09] placeholder-[#0a0a09]/50"
-                    placeholder="Your Name"
-                  />
-                </div>
-                
-                {/* Email Field */}
-                <div>
-                  <label htmlFor="email" className="block text-base font-ophelia text-[#0a0a09] mb-2 text-left">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 py-3 rounded-lg border border-[#0a0a09]/20 focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-ophelia text-[#0a0a09] placeholder-[#0a0a09]/50"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                {/* Dietary/Special Requests */}
-                {formData.attending === "yes" && (
-                  <div>
-                    <label htmlFor="specialRequests" className="block text-base font-ophelia text-[#0a0a09] mb-2 text-left">
-                      Dietary Restrictions or Special Requests
-                    </label>
-                    <textarea
-                      id="specialRequests"
-                      name="specialRequests"
-                      value={formData.specialRequests}
-                      onChange={handleInputChange}
-                      rows={4}
-                      className="w-full px-3 py-3 rounded-lg border border-[#0a0a09]/20 focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-ophelia text-[#0a0a09] placeholder-[#0a0a09]/50"
-                      placeholder="Vegetarian, allergies, accessibility needs, etc."
-                    />
-                  </div>
-                )}
+            {/* Content container */}
+            <div className="relative z-10">
+              <div className="text-center mb-8">
+                <h3 className="font-roze font-bold text-4xl text-[#0a0a09] tracking-wider mb-4">
+                  RSVP
+                </h3>
+                <div className="w-20 h-px bg-[#0a0a09]/30 mx-auto"></div>
               </div>
               
-              <div className="flex justify-center space-x-6">
-                <button
-                  type="button"
-                  onClick={() => setShowForm(false)}
-                  className="px-8 py-3 border border-[#0a0a09]/60 rounded-lg text-base font-roze tracking-wider text-[#0a0a09] hover:bg-[#eaeaea] transition-colors cursor-pointer"
-                >
-                  CANCEL
-                </button>
-                <button
-                  type="submit"
-                  className="px-8 py-3 bg-[#e0b553] rounded-lg text-base font-roze tracking-wider text-white hover:bg-[#d0a548] transition-colors cursor-pointer"
-                >
-                  {formData.attending === "yes" ? "RSVP" : "SEND REGRETS"}
-                </button>
-              </div>
-            </form>
+              <form onSubmit={handleSubmit}>
+                <div className="space-y-6 mb-8">
+                  {/* Attendance Selection */}
+                  <div className="flex flex-col space-y-4 mb-6">
+                    <p className="text-base font-ophelia font-bold text-[#0a0a09]/90 mb-4 text-left">
+                      Will you be attending?
+                    </p>
+                    <div className="flex items-center space-x-8">
+                      <label className="flex items-center gap-3">
+                        <input
+                          type="radio"
+                          name="attending"
+                          value="yes"
+                          checked={formData.attending === "yes"}
+                          onChange={handleInputChange}
+                          className="h-5 w-5 border border-[#0a0a09]/80 focus:ring-0 focus:ring-offset-0 text-[#e0b553] cursor-pointer"
+                        />
+                        <span className="font-classyvogue text-lg text-[#0a0a09]/70">Yes, with joy!</span>
+                      </label>
+                      <label className="flex items-center gap-3">
+                        <input
+                          type="radio"
+                          name="attending"
+                          value="no"
+                          checked={formData.attending === "no"}
+                          onChange={handleInputChange}
+                          className="h-5 w-5 border border-[#0a0a0999] focus:ring-0 focus:ring-offset-0 text-[#e0b553] cursor-pointer"
+                        />
+                        <span className="font-classyvogue text-lg text-[#0a0a09]/70">Regretfully, No.</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Name Field */}
+                  <div>
+                    <label htmlFor="name" className="block text-base font-ophelia font-bold text-[#0a0a09]/90 mb-2 text-left">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-3 rounded-lg border border-[#0a0a0999] focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-classyvogue text-[#0a0a09] text-base placeholder-[#0a0a09]/50"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  
+                  {/* Email Field */}
+                  <div>
+                    <label htmlFor="email" className="block text-base font-ophelia font-bold text-[#0a0a09]/90 mb-2 text-left">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-3 rounded-lg border border-[#0a0a09]/20 focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-classyvogue text-[#0a0a09] text-base placeholder-[#0a0a09]/50"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                  {/* Dietary/Special Requests */}
+                  {formData.attending === "yes" && (
+                    <div>
+                      <label htmlFor="specialRequests" className="block text-base font-ophelia font-bold text-[#0a0a09]/90 mb-2 text-left">
+                        Dietary Restrictions or Special Requests
+                      </label>
+                      <textarea
+                        id="specialRequests"
+                        name="specialRequests"
+                        value={formData.specialRequests}
+                        onChange={handleInputChange}
+                        rows={4}
+                        className="w-full px-3 py-3 rounded-lg border border-[#0a0a09]/20 focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-classyvogue text-[#0a0a09] text-base placeholder-[#0a0a09]/50"
+                        placeholder="Vegetarian, allergies, accessibility needs, etc."
+                      />
+                    </div>
+                  )}
+                </div>
+                
+                <div className="flex justify-center space-x-6">
+                  <button
+                    type="button"
+                    onClick={() => setShowForm(false)}
+                    className="px-8 py-3 border border-[#0a0a09]/60 rounded-lg text-base font-classyvogue font-bold tracking-wider text-[#0a0a09] hover:bg-[#0a0a09]/5 transition-colors cursor-pointer"
+                  >
+                    CANCEL
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-8 py-3 bg-[#d0a548] rounded-lg text-base font-classyvogue font-bold tracking-wider text-white hover:bg-[#d0a548]/90 transition-colors cursor-pointer"
+                  >
+                    {formData.attending === "yes" ? "RSVP" : "SEND REGRETS"}
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       )}
