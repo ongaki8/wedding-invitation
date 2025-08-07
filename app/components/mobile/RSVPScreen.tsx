@@ -30,22 +30,47 @@ export default function MobileRSVPScreen() {
 
   // PIN input
   useEffect(() => {
-    if (pin.length === 4) {
-      const enteredPin = pin.join('');
-      if (enteredPin === process.env.NEXT_PUBLIC_WEDDING_PIN) {
-        setAuthenticated(true);
-        setShowPinScreen(false);
-        setPin([]);
-      } else {
-        setError(true);
-        setShake(true);
-        setTimeout(() => {
-          setPin([]);
-          setShake(false);
-          setError(false);
-        }, 500);
+    const validatePin = async () => {
+      if (pin.length === 4) {
+        const enteredPin = pin.join('');
+        try {
+          const response = await fetch('/api/pin', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ pin: enteredPin }),
+          });
+          
+          const data = await response.json();
+          
+          if (data.isValid) {
+            setAuthenticated(true);
+            setShowPinScreen(false);
+            setPin([]);
+          } else {
+            setError(true);
+            setShake(true);
+            setTimeout(() => {
+              setPin([]);
+              setShake(false);
+              setError(false);
+            }, 500);
+          }
+        } catch (error) {
+          console.error('PIN validation failed:', error);
+          setError(true);
+          setShake(true);
+          setTimeout(() => {
+            setPin([]);
+            setShake(false);
+            setError(false);
+          }, 500);
+        }
       }
-    }
+    };
+
+    validatePin();
   }, [pin]);
 
   const handleNumberPress = (num: string, index: number) => {
