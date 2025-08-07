@@ -38,12 +38,12 @@ const INITIAL_FORM_DATA = {
 
 const SuccessModal = ({ onClose, attending, email, emailSent }: SuccessModalProps) => (
   <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-10 animate-fadeIn">
-    <div className="relative bg-white/95 rounded-2xl shadow-xl max-w-md w-full p-8 animate-scaleIn">
+    <div className="relative bg-white/95 rounded-2xl shadow-xl max-w-2xl w-full p-10 animate-scaleIn">
       {/* Marble Background */}
       <div 
         className="absolute inset-0 rounded-2xl opacity-50 z-0"
         style={{
-          backgroundImage: "url('/marble.webp')",
+          backgroundImage: "url('/desktop-marble.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
@@ -51,40 +51,40 @@ const SuccessModal = ({ onClose, attending, email, emailSent }: SuccessModalProp
       />
       
       <div className="relative z-10 text-center">
-        <h3 className="font-roze font-bold text-2xl text-[#0a0a09] tracking-wider mb-3">
+        <h3 className="font-roze font-bold text-3xl text-[#0a0a09] tracking-wider mb-4">
           {attending === "yes" ? "THANK YOU" : "WE'LL MISS YOU"}
         </h3>
-        <div className="w-16 h-px bg-[#0a0a09]/30 mx-auto mb-4"></div>
+        <div className="w-20 h-px bg-[#0a0a09]/30 mx-auto mb-6"></div>
         
         {attending === "yes" ? (
           <>
-            <p className="font-ophelia text-md tracking-wider text-[#0a0a09]/80 mb-4">
+            <p className="font-ophelia text-lg tracking-wider text-[#0a0a09]/80 mb-6">
               We're thrilled you'll be joining us! Your presence means the world.
             </p>
             
             {emailSent ? (
-              <div className="bg-green-50/56 p-3 rounded-lg mb-6 border border-green-300">
-                <div className="flex justify-center mb-2">
-                  <MailCheck className="w-5 h-5 text-green-500/70" strokeWidth={2} />
+              <div className="bg-green-50/56 p-4 rounded-lg mb-8 border border-green-300">
+                <div className="flex justify-center mb-3">
+                  <MailCheck className="w-6 h-6 text-green-500/70" strokeWidth={2} />
                 </div>
-                <p className="text-xs font-poppins-light text-[#0a0a09]/70 mb-2 text-center">
+                <p className="text-sm font-poppins-light text-[#0a0a09]/70 mb-3 text-center">
                   A confirmation email has been sent to <span className="font-bold text-[#d0a548]">{email}</span>
                 </p>
-                <div className="w-[30%] h-px bg-[#0a0a09]/30 mx-auto my-2"></div>
-                <p className="text-xs font-poppins-light text-[#0a0a09]/70 text-center">
+                <div className="w-[30%] h-px bg-[#0a0a09]/30 mx-auto my-3"></div>
+                <p className="text-sm font-poppins-light text-[#0a0a09]/70 text-center">
                   Didn't get the email? It might be hiding in your spam or junk folder.
                 </p>
               </div>
             ) : (
-              <div className="bg-red-50/56 p-3 rounded-lg mb-6 border border-red-300">
-                <div className="flex justify-center mb-2">
-                  <MailX className="w-5 h-5 text-red-500/70" strokeWidth={2} />
+              <div className="bg-red-50/56 p-4 rounded-lg mb-8 border border-red-300">
+                <div className="flex justify-center mb-3">
+                  <MailX className="w-6 h-6 text-red-500/70" strokeWidth={2} />
                 </div>
-                <p className="text-xs font-poppins-light text-[#0a0a09]/70 text-center">
+                <p className="text-sm font-poppins-light text-[#0a0a09]/70 text-center">
                   We tried sending your confirmation email, but it didn't quite make it down the aisle.
                 </p>
-                <div className="w-[30%] h-px bg-[#0a0a09]/30 mx-auto my-2"></div>
-                <p className="text-xs font-poppins-light text-[#0a0a09]/70 text-center">
+                <div className="w-[30%] h-px bg-[#0a0a09]/30 mx-auto my-3"></div>
+                <p className="text-sm font-poppins-light text-[#0a0a09]/70 text-center">
                   Please try again, or contact us if the issue continues.
                 </p>
               </div>
@@ -92,21 +92,21 @@ const SuccessModal = ({ onClose, attending, email, emailSent }: SuccessModalProp
           </>
         ) : (
           <>
-            <p className="font-ophelia text-md tracking-wider text-[#0a0a09]/80 mb-4">
+            <p className="font-ophelia text-lg tracking-wider text-[#0a0a09]/80 mb-6">
               Your response is appreciated, and your presence will be missed.
             </p>
             
-            <div className="bg-[#d0a548]/10 p-3 rounded-lg mb-6 border border-[#d0a548]/50">
-              <div className="flex justify-center mb-2">
-                <MessageSquareHeart className="w-5 h-5 text-[#d0a548]" strokeWidth={2} />
+            <div className="bg-[#d0a548]/10 p-4 rounded-lg mb-8 border border-[#d0a548]/50">
+              <div className="flex justify-center mb-3">
+                <MessageSquareHeart className="w-6 h-6 text-[#d0a548]" strokeWidth={2} />
               </div>
-              <p className="text-xs font-poppins-light text-[#0a0a09]/70 mb-2 text-center">
+              <p className="text-sm font-poppins-light text-[#0a0a09]/70 mb-3 text-center">
                 We've noted your regrets, and we'll be thinking of you on our special day.
               </p>
               {emailSent && (
                 <>
-                  <div className="w-[30%] h-px bg-[#0a0a09]/30 mx-auto my-2"></div>
-                  <p className="text-xs font-poppins-light text-[#0a0a09]/70 text-center">
+                  <div className="w-[30%] h-px bg-[#0a0a09]/30 mx-auto my-3"></div>
+                  <p className="text-sm font-poppins-light text-[#0a0a09]/70 text-center">
                     A note of appreciation has been sent to <span className="font-bold text-[#d0a548]">{email}</span>
                   </p>
                 </>
@@ -117,7 +117,7 @@ const SuccessModal = ({ onClose, attending, email, emailSent }: SuccessModalProp
 
         <button
           onClick={onClose}
-          className="px-6 py-2 bg-[#d0a548] rounded-lg text-sm font-classyvogue font-bold tracking-wider text-white hover:bg-[#d0a548]/90 transition-colors"
+          className="px-8 py-3 bg-[#d0a548] rounded-lg text-base font-classyvogue font-bold tracking-wider text-white hover:bg-[#d0a548]/90 transition-colors cursor-pointer"
         >
           CLOSE
         </button>
@@ -126,7 +126,7 @@ const SuccessModal = ({ onClose, attending, email, emailSent }: SuccessModalProp
   </div>
 );
 
-export default function RSVPModal({ 
+export default function DesktopRSVPModal({ 
   showForm, 
   setShowForm, 
   formData, 
@@ -266,14 +266,14 @@ export default function RSVPModal({
       <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-6 animate-fadeIn">
         <div 
           ref={modalRef}
-          className="relative bg-white/95 rounded-2xl shadow-xl max-w-md w-full p-6 animate-scaleIn max-h-[90vh] overflow-y-auto"
+          className="relative bg-white/95 rounded-2xl shadow-xl max-w-2xl w-full p-8 animate-scaleIn max-h-[90vh] overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Marble Background */}
           <div 
             className="absolute inset-0 rounded-2xl opacity-50 z-0"
             style={{
-              backgroundImage: "url('/marble.webp')",
+              backgroundImage: "url('/desktop-marble.webp')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat"
@@ -282,52 +282,52 @@ export default function RSVPModal({
           
           {/* Content container */}
           <div className="relative z-10">
-            <div className="text-center mb-6">
-              <h3 className="font-roze font-bold text-3xl text-[#0a0a09] tracking-wider mb-3">
+            <div className="text-center mb-8">
+              <h3 className="font-roze font-bold text-4xl text-[#0a0a09] tracking-wider mb-4">
                 RSVP
               </h3>
-              <div className="w-16 h-px bg-[#0a0a09]/30 mx-auto"></div>
+              <div className="w-20 h-px bg-[#0a0a09]/30 mx-auto"></div>
             </div>
             
             <form onSubmit={handleSubmit} noValidate>
-              <div className="space-y-4 mb-6">
+              <div className="space-y-6 mb-8">
                 {/* Attendance Selection */}
-                <div className="flex flex-col space-y-3 mb-4">
-                  <p className="text-sm font-ophelia font-bold text-[#0a0a09]/80 mb-3 text-left">
+                <div className="flex flex-col space-y-4 mb-6">
+                  <p className="text-base font-ophelia font-bold text-[#0a0a09]/90 mb-4 text-left">
                     Will you be attending? *
                   </p>
-                  <div className="flex items-center space-x-6">
-                    <label className="flex items-center gap-2">
+                  <div className="flex items-center space-x-8">
+                    <label className="flex items-center gap-3">
                       <input
                         type="radio"
                         name="attending"
                         value="yes"
                         checked={formData.attending === "yes"}
                         onChange={handleInputChange}
-                        className="h-4 w-4 border border-[#0a0a09]/80 focus:ring-0 focus:ring-offset-0 text-[#e0b553]"
+                        className="h-5 w-5 border border-[#0a0a09]/80 focus:ring-0 focus:ring-offset-0 text-[#e0b553] cursor-pointer"
                       />
-                      <span className="font-classyvogue text-sm text-[#0a0a09]/80">Yes, with joy!</span>
+                      <span className="font-classyvogue text-lg text-[#0a0a09]/70">Yes, with joy!</span>
                     </label>
-                    <label className="flex items-center gap-2">
+                    <label className="flex items-center gap-3">
                       <input
                         type="radio"
                         name="attending"
                         value="no"
                         checked={formData.attending === "no"}
                         onChange={handleInputChange}
-                        className="h-4 w-4 border border-[#0a0a0999] focus:ring-0 focus:ring-offset-0 text-[#e0b553]"
+                        className="h-5 w-5 border border-[#0a0a0999] focus:ring-0 focus:ring-offset-0 text-[#e0b553] cursor-pointer"
                       />
-                      <span className="font-classyvogue text-sm text-[#0a0a09]/80">Regretfully, No.</span>
+                      <span className="font-classyvogue text-lg text-[#0a0a09]/70">Regretfully, No.</span>
                     </label>
                   </div>
                   {formErrors.attending && (
-                    <p className="text-red-500 text-xs font-ophelia font-bold tracking-wide">{formErrors.attending}</p>
+                    <p className="text-red-500 text-sm font-ophelia font-bold tracking-wide">{formErrors.attending}</p>
                   )}
                 </div>
 
                 {/* Name Field */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-ophelia font-bold text-[#0a0a09]/80 mb-1 text-left">
+                  <label htmlFor="name" className="block text-base font-ophelia font-bold text-[#0a0a09]/90 mb-2 text-left">
                     Full Name*
                   </label>
                   <input
@@ -338,19 +338,19 @@ export default function RSVPModal({
                     enterKeyHint="done"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className={`w-full px-2 py-2 rounded-lg border ${
+                    className={`w-full px-3 py-3 rounded-lg border ${
                       formErrors.name ? "border-red-500" : "border-[#0a0a0999]"
-                    } focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-classyvogue text-[#0a0a09]/80 text-sm placeholder-[#0a0a09]/50 placeholder:text-sm`}
+                    } focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-classyvogue text-[#0a0a09] text-base placeholder-[#0a0a09]/50`}
                     placeholder="Your Name"
                   />
                   {formErrors.name && (
-                    <p className="text-red-500 text-xs mt-2 font-ophelia font-bold tracking-wide">{formErrors.name}</p>
+                    <p className="text-red-500 text-sm mt-2 font-ophelia font-bold tracking-wide">{formErrors.name}</p>
                   )}
                 </div>
                 
                 {/* Email Field */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-ophelia font-bold text-[#0a0a09]/80 mb-1 text-left">
+                  <label htmlFor="email" className="block text-base font-ophelia font-bold text-[#0a0a09]/90 mb-2 text-left">
                     Email Address*
                   </label>
                   <input
@@ -359,20 +359,20 @@ export default function RSVPModal({
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full px-2 py-2 rounded-lg border ${
+                    className={`w-full px-3 py-3 rounded-lg border ${
                       formErrors.email ? "border-red-500" : "border-[#0a0a09]/20"
-                    } focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-classyvogue text-[#0a0a09]/80 text-sm placeholder-[#0a0a09]/50 placeholder:text-sm`}
+                    } focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-classyvogue text-[#0a0a09] text-base placeholder-[#0a0a09]/50`}
                     placeholder="your@email.com"
                   />
                   {formErrors.email && (
-                    <p className="text-red-500 text-xs mt-2 font-ophelia font-bold tracking-wide">{formErrors.email}</p>
+                    <p className="text-red-500 text-sm mt-2 font-ophelia font-bold tracking-wide">{formErrors.email}</p>
                   )}
                 </div>
 
                 {/* Dietary/Special Requests */}
                 {formData.attending === "yes" && (
                   <div>
-                    <label htmlFor="specialRequests" className="block text-sm font-ophelia font-bold text-[#0a0a09]/80 mb-1 text-left">
+                    <label htmlFor="specialRequests" className="block text-base font-ophelia font-bold text-[#0a0a09]/90 mb-2 text-left">
                       Dietary Restrictions or Special Requests
                     </label>
                     <textarea
@@ -380,8 +380,8 @@ export default function RSVPModal({
                       name="specialRequests"
                       value={formData.specialRequests}
                       onChange={handleInputChange}
-                      rows={3}
-                      className="w-full px-2 py-2 rounded-lg border border-[#0a0a09]/20 focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-classyvogue text-[#0a0a09]/80 text-sm placeholder-[#0a0a09]/50 placeholder:text-sm"
+                      rows={4}
+                      className="w-full px-3 py-3 rounded-lg border border-[#0a0a09]/20 focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-classyvogue text-[#0a0a09] text-base placeholder-[#0a0a09]/50"
                       placeholder="Vegetarian, allergies, accessibility needs, etc."
                     />
                   </div>
@@ -389,8 +389,8 @@ export default function RSVPModal({
 
                 {/* Well Wishes */}
                 {formData.attending === "no" && (
-                  <div className="mt-4 transition-all duration-300 ease-in-out">
-                    <label htmlFor="wellWishes" className="block text-sm font-ophelia font-bold text-[#0a0a09]/80 mb-1 text-left">
+                  <div className="mt-6 transition-all duration-300 ease-in-out">
+                    <label htmlFor="wellWishes" className="block text-base font-ophelia font-bold text-[#0a0a09]/90 mb-2 text-left">
                       Message for the Couple
                     </label>
                     <textarea
@@ -398,13 +398,13 @@ export default function RSVPModal({
                       name="wellWishes"
                       value={formData.wellWishes}
                       onChange={handleInputChange}
-                      rows={3}
+                      rows={4}
                       maxLength={400}
-                      className="w-full px-2 py-2 rounded-lg border border-[#0a0a09]/20 focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-classyvogue text-[#0a0a09]/80 text-sm placeholder-[#0a0a09]/50 placeholder:text-sm"
+                      className="w-full px-3 py-3 rounded-lg border border-[#0a0a09]/20 focus:outline-none focus:ring-1 focus:ring-[#e0b553] font-classyvogue text-[#0a0a09] text-base placeholder-[#0a0a09]/50"
                       placeholder="Your well wishes to Kimberly & Anesu"
                     />
                     <div className="flex justify-between items-center mt-1">
-                      <p className="text-xs text-[#0a0a09]/60 font-ophelia">
+                      <p className="text-sm text-[#0a0a09]/60 font-ophelia">
                         {formData.wellWishes.length}/400 characters
                       </p>
                     </div>
@@ -414,29 +414,29 @@ export default function RSVPModal({
               
               {/* Submission Error */}
               {submitError && (
-                <div className="mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg font-ophelia">
+                <div className="mb-6 p-4 bg-red-50 text-red-600 text-base rounded-lg font-ophelia">
                   {submitError}
                 </div>
               )}
 
               {/* Form Actions */}
-              <div className="flex justify-center space-x-4">
+              <div className="flex justify-center space-x-6">
                 <button
                   type="button"
                   onClick={handleCancel}
                   disabled={isSubmitting}
-                  className="px-6 py-2 border border-[#0a0a09]/60 rounded-lg text-sm font-classyvogue font-bold tracking-wider text-[#0a0a09] hover:bg-[#0a0a09]/10 transition-colors disabled:opacity-50"
+                  className="px-8 py-3 border border-[#0a0a09]/60 rounded-lg text-base font-classyvogue font-bold tracking-wider text-[#0a0a09] hover:bg-[#0a0a09]/5 transition-colors cursor-pointer disabled:opacity-50"
                 >
                   CANCEL
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-2 bg-[#d0a548] rounded-lg text-sm font-classyvogue font-bold tracking-wider text-white hover:bg-[#d0a548]/90 transition-colors disabled:opacity-50 flex items-center justify-center min-w-24"
+                  className="px-8 py-3 bg-[#d0a548] rounded-lg text-base font-classyvogue font-bold tracking-wider text-white hover:bg-[#d0a548]/90 transition-colors cursor-pointer disabled:opacity-50 flex items-center justify-center min-w-32"
                 >
                   {isSubmitting ? (
                     <>
-                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>

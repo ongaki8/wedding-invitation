@@ -89,7 +89,7 @@ export default function MobileInvitationScreen() {
         <div className="grid grid-cols-3 gap-6 items-center max-w-sm mx-auto mb-[25%]">
           <div className="flex flex-col justify-center items-center border-t border-b border-white/60 py-2 animate-fadeIn opacity-0" style={{ animationDelay: '0.85s', animationFillMode: 'forwards' }}>
             <span className="uppercase text-sm tracking-widest font-ophelia font-bold">
-              Saturday
+              Thursday
             </span>
           </div>
 
@@ -105,7 +105,7 @@ export default function MobileInvitationScreen() {
 
           <div className="flex flex-col justify-center items-center border-t border-b border-white/60 py-2 animate-fadeIn opacity-0" style={{ animationDelay: '0.85s', animationFillMode: 'forwards' }}>
             <span className="uppercase text-md tracking-widest font-ophelia font-bold">
-              At 3:30 PM
+              At 1:00 PM
             </span>
           </div>
         </div>

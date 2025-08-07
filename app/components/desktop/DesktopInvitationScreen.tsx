@@ -89,7 +89,7 @@ export default function DesktopInvitationScreen() {
         <div className="grid grid-cols-3 gap-8 items-center max-w-2xl mx-auto">
           <div className="flex flex-col justify-center items-center border-t border-b border-white/60 py-4 animate-fadeIn opacity-0" style={{ animationDelay: '0.85s', animationFillMode: 'forwards' }}>
             <span className="uppercase text-lg tracking-widest font-ophelia">
-              Saturday
+              Thursday
             </span>
           </div>
 
@@ -105,7 +105,7 @@ export default function DesktopInvitationScreen() {
 
           <div className="flex flex-col justify-center items-center border-t border-b border-white/60 py-4 animate-fadeIn opacity-0" style={{ animationDelay: '0.85s', animationFillMode: 'forwards' }}>
             <span className="uppercase text-xl tracking-widest font-ophelia">
-              At 3:30 PM
+              At 1:00 PM
             </span>
           </div>
         </div>

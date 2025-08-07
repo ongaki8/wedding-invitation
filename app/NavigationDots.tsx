@@ -1,10 +1,9 @@
 'use client';
 import { motion, useAnimation } from 'framer-motion';
-import { Info, Mail, Calendar, Home, Code } from 'react-feather';
-import { Gem, CalendarCheck, Calendar1, CheckCheck, MailOpen } from 'lucide-react';
+import { Info, Code, Minimize2 } from 'react-feather';
+import { Calendar1, CheckCheck, MailOpen, Expand } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 
 type Screen = 'invitation' | 'details' | 'rsvp' | 'date';
 
@@ -34,8 +33,10 @@ export default function NavigationDots({
   screens
 }: NavigationDotsProps) {
   const [isDevMenuOpen, setIsDevMenuOpen] = useState(false);
+  const [isNavMinimized, setIsNavMinimized] = useState(false);
   const iconControls = useAnimation();
   const borderControls = useAnimation();
+  const navControls = useAnimation();
 
   useEffect(() => {
     const animateColors = async () => {
@@ -63,8 +64,51 @@ export default function NavigationDots({
     animateColors();
   }, [iconControls, borderControls]);
 
+  const toggleNavMinimized = async () => {
+    if (isNavMinimized) {
+      // Maximize
+      await navControls.start({
+        x: 0,
+        opacity: 1,
+        transition: { type: "spring", damping: 20, stiffness: 300 }
+      });
+    } else {
+      // Minimize 
+      await navControls.start({
+        x: -100,
+        opacity: 0,
+        transition: { type: "spring", damping: 20, stiffness: 300 }
+      });
+    }
+    setIsNavMinimized(!isNavMinimized);
+  };
+
   return (
     <>
+      {/* Minimize Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="fixed bottom-4 left-3.5 z-50 flex items-center"
+      >
+        <motion.div 
+          className="backdrop-blur-sm bg-black/40 border-2 border-white/20 rounded-full flex items-center"
+        >
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="p-3 rounded-full transition-all duration-300"
+            onClick={toggleNavMinimized}
+            aria-label={isNavMinimized ? "Show navigation" : "Hide navigation"}
+          >
+            <span className="text-white/70">
+              {isNavMinimized ? <Expand size={20} strokeWidth={2.5} /> : <Minimize2 size={20} strokeWidth={2.5} />}
+            </span>
+          </motion.button>
+        </motion.div>
+      </motion.div>
+
       {/* Developer Info Button */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -82,7 +126,7 @@ export default function NavigationDots({
             whileTap={{ scale: 0.9 }}
             className="p-3 rounded-full transition-all duration-300"
             onClick={() => setIsDevMenuOpen(!isDevMenuOpen)}
-            aria-label="Developer information"
+            aria-label="digiREB information"
           >
             <motion.span
               animate={iconControls}
@@ -92,7 +136,7 @@ export default function NavigationDots({
             </motion.span>
           </motion.button>
 
-          {/* Developer Popup */}
+          {/* digiREB Popup */}
           {isDevMenuOpen && (
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
@@ -140,7 +184,11 @@ export default function NavigationDots({
         transition={{ delay: 0.5 }}
         className="fixed bottom-3 left-0 right-0 flex justify-center z-40"
       >
-        <div className="flex space-x-4 backdrop-blur-sm bg-black/40 rounded-4xl px-5 py-2">
+        <motion.div
+          animate={navControls}
+          className="flex space-x-4 backdrop-blur-sm bg-black/40 rounded-4xl px-5 py-2"
+          style={{ originX: 0.5 }}
+        >
           {screens.map((screen, index) => {
             const Icon = screenIcons[screen];
             const label = screenLabels[screen];
@@ -164,7 +212,7 @@ export default function NavigationDots({
               </motion.button>
             );
           })}
-        </div>
+        </motion.div>
       </motion.div>
     </>
   );

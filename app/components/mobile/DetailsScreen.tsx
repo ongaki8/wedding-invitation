@@ -67,19 +67,20 @@ export default function MobileDetailsScreen() {
       </div>
 
       {/* Header with blurred background */}
-      <div className="fixed top-0 left-0 right-0 z-20 pt-4 pb-2 backdrop-blur-md border-b-1 border-b-white bg-gradient-to-b from-black/20 via-black/10 to-transparent">
-        <div className="max-w-md mx-auto px-6">
-          <div className="text-center">
-            <div className="font-roze font-bold text-3xl tracking-widest text-white">
-              DETAILS
+      
+    <div className="fixed top-0 left-0 right-0 z-20 pt-4 pb-2 backdrop-blur-md border-b border-b-white/5 bg-gradient-to-b from-black/20 via-black/10 to-transparent shadow-lg shadow-black/20">
+            <div className="max-w-md mx-auto px-6">
+              <div className="text-center">
+                <div className="font-roze font-bold text-3xl tracking-widest text-white">
+                  DETAILS
+                </div>
+                {/* <div className="mt-4 mx-auto w-24 h-px bg-white/30"></div> */}
+              </div>
             </div>
-            {/* <div className="mt-4 mx-auto w-24 h-px bg-white/30"></div> */}
           </div>
-        </div>
-      </div>
 
       {/* Scrollable Content */}
-      <div className="relative z-10 max-w-md mx-auto px-6 pt-24 pb-12 text-white min-h-screen">
+      <div className="relative z-10 max-w-md mx-auto px-6 pt-18 pb-12 text-white min-h-screen">
         <div className="relative pl-0">
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-white/80"></div>
 
@@ -93,11 +94,11 @@ export default function MobileDetailsScreen() {
           </div>
         </div>
 
-        <div className="mt-10 text-center">
+        {/* <div className="mt-10 text-center">
           <div className="inline-block font-roze font-bold text-sm text-white tracking-wider">
             WE CAN'T WAIT TO CELEBRATE WITH YOU
           </div>
-        </div>
+        </div> */}
 
         {/* Scroll Up */}
         <div className="mt-4 mb-8 relative z-20 opacity-0" 
@@ -161,7 +162,7 @@ export default function MobileDetailsScreen() {
                   {selectedColor.name}
                 </h3>
                 <p className="font-classyvogue text-sm text-[#0a0a09]/80 mb-5 border border-[#0a0a09]/80 rounded-xl px-4 py-2 inline-block">
-                  Suggested wedding attire color
+                  Colors we'd love to see you in
                 </p>
                 
                 <div className="flex justify-center">

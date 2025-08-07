@@ -1,7 +1,7 @@
 'use client';
 import { motion, useAnimation } from 'framer-motion';
 import { Info, Mail, Calendar, Home, Code } from 'react-feather';
-import { Gem, CalendarCheck, Calendar1, MailOpen, CheckCheck } from 'lucide-react';
+import { Calendar1, MailOpen, CheckCheck } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -99,7 +99,7 @@ export default function DesktopNavigationDots({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
               transition={{ type: "spring", damping: 20, stiffness: 300 }}
-              className="absolute right-0 bottom-full mb-4.5 bg-black/80 backdrop-blur-2xl text-gray-100 rounded-2xl p-0 shadow-2xl w-100 border-1 border-white/40 overflow-hidden"
+              className="absolute right-0 bottom-full mb-4.5 bg-black/85 backdrop-blur-sm text-gray-100 rounded-2xl p-0 shadow-2xl w-100 border-1 border-white/40 overflow-hidden"
             >
               {/* Top Banner with Image */}
               <div 
@@ -123,7 +123,7 @@ export default function DesktopNavigationDots({
                     href="https://digi.reb.ac" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center text-[0.9375rem] font-poppins-regular font-bold text-[#4d11f0] hover:text-[#710e3c] transition-colors group mx-auto px-4.5 py-2.25 rounded-md border-2 border-[#4d11f0] hover:border-[#710e3c] mb-3"
+                    className="inline-flex items-center justify-center text-[0.9375rem] font-poppins-regular font-bold text-white hover:text-[#4d11f0] transition-colors group mx-auto px-4.5 py-2.25 rounded-md border-2 border-white hover:border-[#4d11f0] mb-3"
                   >
                     Need a Website or APP?
                   </Link>

@@ -220,11 +220,11 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
         </div>
       )}
 
-      {/* Skip button with delay */}
+      {/* Skip button */}
       {showSkipButton && (
         <button
           onClick={onComplete}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 font-classyvogue tracking-wider text-sm font-bold bg-black/50 text-white border-1 border-white/20 px-4 py-2 rounded-full z-10"
+          className="absolute bottom-[12%] left-1/2 transform -translate-x-1/2 font-classyvogue tracking-wider text-sm font-bold bg-black/50 text-white border-1 border-white/20 px-4 py-2 rounded-full z-10"
         >
           SKIP VIDEO
         </button>

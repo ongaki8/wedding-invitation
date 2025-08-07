@@ -44,7 +44,7 @@ export default function DesktopDetailsScreen() {
   }, []);
 
   return (
-    <div className="relative w-full h-full overflow-y-auto">
+    <div className="relative w-full h-screen overflow-hidden">
       <div className="fixed inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -62,46 +62,40 @@ export default function DesktopDetailsScreen() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
       </div>
 
-      {/* Header with blurred background */}
-      <div className="fixed top-0 left-0 right-0 z-20 pt-6 pb-4 backdrop-blur-md border-b-1 border-b-white bg-gradient-to-b from-black/20 via-black/10 to-transparent">
+      <div className="fixed top-0 left-0 right-0 z-20 pt-6 pb-4 backdrop-blur-md border-b-1 border-b-white/5 bg-gradient-to-b from-black/20 via-black/10 to-transparent shadow-lg shadow-black/20">
         <div className="max-w-5xl mx-auto px-12">
           <div className="text-center">
-            <div className="font-roze font-bold text-4xl tracking-widest text-white">
-              DETAILS
+            <div className="font-roze font-bold text-3xl tracking-widest text-white">
+              WEDDING INFO
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scrollable Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-12 pt-32 pb-12 text-white min-h-screen">
-        <div className="relative pl-0">
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-white/80"></div>
+      <div className="relative z-10 h-full pt-12 pb-24 overflow-y-auto">
+        <div className="max-w-5xl mx-auto px-12 text-white min-h-full">
+          <div className="relative pl-0">
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-[90%] w-0.5 bg-white/80"></div>
 
-          <div className="space-y-16 mt-[10%]">
-            <DressCodeSection 
-              selectedColor={selectedColor} 
-              setSelectedColor={setSelectedColor} 
-            />
-            <TransportationSection setShowMapModal={setShowMapModal} />
-            <GiftSection />
-          </div>
-        </div>
+            <div className="space-y-16 mt-[10%]">
+              <DressCodeSection 
+                selectedColor={selectedColor} 
+                setSelectedColor={setSelectedColor} 
+              />
+              <TransportationSection setShowMapModal={setShowMapModal} />
+              <GiftSection />
+            </div>
 
-        <div className="mt-16 text-center">
-          <div className="inline-block font-roze font-bold text-xl text-white tracking-wider">
-            WE CAN'T WAIT TO CELEBRATE WITH YOU
-          </div>
-        </div>
-
-        {/* Scroll Up */}
-        <div className="mt-8 mb-8 relative z-20 opacity-0" 
-              style={{ 
-                animation: 'fadeIn 0.5s ease-in 0.5s forwards, bounce 2s infinite 2.5s' 
-              }}>
-          <div className="flex flex-col items-center justify-center">
-            <ChevronUp className="text-white/80 h-8 w-8" />
-            <span className="text-sm tracking-widest font-ophelia font-bold">Scroll Up</span>
+            {/* Scroll Up */}
+            <div className="mt-8 mb-16 relative z-20 opacity-0" 
+                  style={{ 
+                    animation: 'fadeIn 0.5s ease-in 0.5s forwards, bounce 2s infinite 2.5s' 
+                  }}>
+              <div className="flex flex-col items-center justify-center">
+                <ChevronUp className="text-white/80 h-8 w-8" />
+                <span className="text-sm tracking-widest font-ophelia font-bold">Scroll Up</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -137,7 +131,7 @@ export default function DesktopDetailsScreen() {
                 {selectedColor.name}
               </h3>
               <p className="font-classyvogue text-base text-center text-[#0a0a09]/80 mb-6 border border-[#0a0a09]/80 rounded-xl px-6 py-3 inline-block">
-                Suggested wedding attire color
+                Colors we'd love to see you in
               </p>
               
               <div className="flex justify-center">
