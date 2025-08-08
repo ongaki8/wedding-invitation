@@ -1,9 +1,12 @@
 import { ChevronDown } from 'react-feather';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function MobileDateScreen() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const slideshowRef = useRef<HTMLDivElement>(null);
   const venuePhotos = [
     '/kim-anesu-1.webp',
     '/kim-anesu-2.webp',
@@ -29,6 +32,30 @@ export default function MobileDateScreen() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const threshold = 50;
+    const difference = touchStart - touchEnd;
+    
+    if (difference > threshold) {
+      setCurrentSlide((prev) => (prev + 1) % venuePhotos.length);
+    } else if (difference < -threshold) {
+      setCurrentSlide((prev) => (prev - 1 + venuePhotos.length) % venuePhotos.length);
+    }
+    
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
   const section1Height = windowHeight * 0.85;
 
   return (
@@ -38,8 +65,12 @@ export default function MobileDateScreen() {
     >
       {/* Photos Slideshow */}
       <div 
+        ref={slideshowRef}
         className="relative w-full rounded-3xl overflow-hidden shadow-lg"
         style={{ height: `${section1Height}px` }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {/* Blurred background */}
         <div 
@@ -72,7 +103,6 @@ export default function MobileDateScreen() {
 
       {/* Date and Names */}
       <div className="flex-1 w-full flex flex-col items-center justify-start px-6 pt-8 pb-12">
-
         {/* Date */}
         <h1 
           className="text-4xl md:text-5xl mb-1 font-ophelia animate-fadeIn opacity-0 text-[#0a0a09]/80" 
@@ -106,12 +136,9 @@ export default function MobileDateScreen() {
           }}
         >
           <p className="text-4xl md:text-5xl font-brittany text-[#e0b553] mb-[20%]">
-          {/* <p className="text-4xl md:text-5xl font-brittany text-[#0a0a09]/80 mb-2"> */}
             Kimberly & Anesu
           </p>
         </div>
-
-        
 
         {/* Indicator */}
         <div 
@@ -126,7 +153,6 @@ export default function MobileDateScreen() {
             <span className="text-sm tracking-widest font-ophelia text-[#0a0a09]/0">See you there</span>
           </div>
         </div>
-
       </div>
 
       <style jsx global>{`
