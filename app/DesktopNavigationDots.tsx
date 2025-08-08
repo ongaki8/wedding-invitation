@@ -109,26 +109,35 @@ export default function DesktopNavigationDots({
 
               {/* Content */}
               <div className="p-6 space-y-3 text-center">
-                <div className="space-y-3">
-                  <p className="text-[0.9375rem] font-poppins-light text-gray-300/90 px-3 mb-1.5">
-                    Developed by digiREB.
-                  </p>
-                  <p className="text-[0.9375rem] font-poppins-light text-gray-300/90 px-3">
-                    Transforming ideas into digital reality.
-                  </p>
-                </div>
+                  <div className="space-y-3">
+                    <p className="text-[0.9375rem] font-poppins-light text-gray-300/90 px-3 mb-1.5">
+                      Developed by ONG.
+                    </p>
+                    <p className="text-[0.9375rem] font-poppins-light text-gray-300/90 px-3">
+                      Transforming ideas into digital reality.
+                    </p>
+                  </div>
 
-                <div className="pt-1.5">
-                  <Link 
-                    href="https://digi.reb.ac" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center text-[0.9375rem] font-poppins-regular font-bold text-white hover:text-[#4d11f0] transition-colors group mx-auto px-4.5 py-2.25 rounded-md border-2 border-white hover:border-[#4d11f0] mb-3"
-                  >
-                    Need a Website or APP?
-                  </Link>
+                  <div className="flex justify-center items-center gap-4 pt-1.5">
+
+                    <Link 
+                      href="https://www.ongaki.website" 
+                      className="inline-flex items-center justify-center text-[0.9375rem] font-poppins-regular font-bold text-white hover:text-[#4d11f0] transition-colors group mx-auto px-4.5 py-2.25 rounded-md border-2 border-white hover:border-[#4d11f0]"
+                    >
+                      Developer
+                    </Link>
+
+                    <Link 
+                      href="https://digi.reb.ac" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center text-[0.9375rem] font-poppins-regular font-bold text-white hover:text-[#4d11f0] transition-colors group mx-auto px-4.5 py-2.25 rounded-md border-2 border-white hover:border-[#4d11f0]"
+                    >
+                      Need a Website or APP?
+                    </Link>
+                    
+                  </div>
                 </div>
-              </div>
 
               {/* Bottom Gradient Accent */}
               <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#4d11f0] to-[#710e3c]" />

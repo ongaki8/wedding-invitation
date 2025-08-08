@@ -124,12 +124,12 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
 
             <div className="absolute bottom-4 text-[#0a0a09]/90 text-md font-poppins-light mb-[20%] z-50">
               <a 
-                href="https://digi.reb.ac" 
+                href="https://ongaki.website" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors cursor-pointer"
               >
-                Developed by digiREB
+                Developed by ONG
               </a>
             </div>
 

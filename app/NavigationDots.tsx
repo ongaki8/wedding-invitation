@@ -156,13 +156,13 @@ export default function NavigationDots({
               {/* Content */}
               <div className="p-4 space-y-2 text-center">
                 <div className="space-y-2">
-                  <p className="text-xs font-poppins-regular text-gray-300/90 px-2 mb-1">Developed by digiREB.</p>
+                  <p className="text-xs font-poppins-regular text-gray-300/90 px-2 mb-1">Developed by ONG.</p>
                   <p className="text-xs font-poppins-regular text-gray-300/90 px-2">Transforming ideas into digital reality.</p>
                 </div>
 
                 <div className="pt-1">
                   <Link 
-                    href="https://digi.reb.ac" 
+                    href="https://ongaki.website" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center text-xs font-poppins-regular font-bold text-[#4d11f0] hover:text-blue-300 transition-colors group mx-auto px-3 py-1.5 rounded-md border border-[#4d11f0] hover:bg-gray-800/70 mb-2"
