@@ -92,8 +92,7 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
     <div className="absolute inset-0 bg-black z-50 flex items-center justify-center"
     style={{ backgroundImage: "url('/floral.webp')", backgroundSize: 'cover'}}
       >
-         <div className="absolute inset-0 backdrop-blur-[2px]"></div>
-
+        
       {/* Loading Screen */}
       <AnimatePresence>
         {isLoading && (
@@ -103,8 +102,12 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
             transition={{ duration: 0.5 }}
             className="absolute inset-0 flex flex-col items-center justify-center p-6"
           >
+            <div className="absolute inset-0 backdrop-blur-[2px]"></div>
+
             <div className="w-full max-w-4xl bg-white/10 p-6 shadow-2xl rounded-4xl flex flex-col items-center justify-center">
+
             <div className="w-full bg-white/70 backdrop-blur-xs rounded-3xl shadow-sm flex flex-col items-center justify-center">
+
             <div className="text-[#0a0a09]/90 font-ophelia font-bold tracking-widest mt-6 mb-4">Preparing your Invitation...</div>
             <div className="w-3/4 h-2 bg-[#0a0a09]/90 rounded-full overflow-hidden">
               <motion.div
