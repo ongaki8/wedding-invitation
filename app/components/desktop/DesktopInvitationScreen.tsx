@@ -43,7 +43,7 @@ export default function DesktopInvitationScreen() {
 
   return (
     <div className="relative h-full w-full flex items-center justify-center">
-      {/* Background image with animation */}
+      {/* Background with animation */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -60,7 +60,7 @@ export default function DesktopInvitationScreen() {
       {/* Dark overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
 
-      {/* Content */}
+      {/* Info */}
       <div className="relative z-10 text-center text-white px-6">
         <p className="text-lg tracking-widest mb-8 font-ophelia animate-fadeIn opacity-0" 
           style={{ animationDelay: '0.25s', animationFillMode: 'forwards' }}

@@ -66,6 +66,7 @@ export default function NavigationDots({
 
   const toggleNavMinimized = async () => {
     if (isNavMinimized) {
+
       // Maximize
       await navControls.start({
         x: 0,
@@ -73,6 +74,7 @@ export default function NavigationDots({
         transition: { type: "spring", damping: 20, stiffness: 300 }
       });
     } else {
+
       // Minimize 
       await navControls.start({
         x: -100,
@@ -109,7 +111,7 @@ export default function NavigationDots({
         </motion.div>
       </motion.div>
 
-      {/* Developer Info Button */}
+      {/* digiREB Info Button */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

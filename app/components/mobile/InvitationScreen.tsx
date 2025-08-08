@@ -43,6 +43,7 @@ export default function MobileInvitationScreen() {
 
   return (
     <div className="relative h-full w-full flex items-end justify-center pb-16">
+      
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center "

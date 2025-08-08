@@ -4,10 +4,10 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
-// Main client with default permissions
+// Client with default permissions
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-// Specialized client for RSVP submissions
+// Client for RSVP submissions
 export const rsvpClient = createClient(supabaseUrl, supabaseAnonKey, {
   db: {
     schema: 'public'
@@ -18,17 +18,8 @@ export const rsvpClient = createClient(supabaseUrl, supabaseAnonKey, {
   }
 });
 
-// Properly typed role setting function
-export const initializeRsvpClient = async () => {
-  try {
-    await rsvpClient.rpc('set_role', { role: 'rsvp_writer' });
-    console.log('RSVP client role set successfully');
-    return true;
-  } catch (error) {
-    console.error('Failed to set RSVP client role:', error);
-    return false;
-  }
+export const initializeRsvpClient = () => {
+  return rsvpClient;
 };
 
-// Initialize immediately (optional)
 initializeRsvpClient();

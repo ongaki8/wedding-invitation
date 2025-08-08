@@ -66,7 +66,7 @@ export default function DesktopInvitationApp() {
         )}
       </AnimatePresence>
 
-      {/* Main App Screens */}
+      {/* App Screens */}
       {!showIntro && (
         <>
           <AnimatePresence custom={direction} initial={false}>

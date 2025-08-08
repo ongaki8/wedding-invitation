@@ -57,11 +57,13 @@ export default function DressCodeSection({ selectedColor, setSelectedColor }: Dr
     <div className="relative w-full">
       <div className="absolute left-1/2 -translate-x-1/2 -translate-y-4/5 top-0 w-4 h-2 bg-transparent border-t-2 border-l-2 border-r-2 border-white/80 rounded-t-full z-[-1]"></div>
       
-      {/* Outer white container */}
+      {/* Outer white Container */}
       <div className="relative text-center max-w-xs mx-auto bg-white/60 p-4 rounded-3xl shadow-sm border border-[#0a0a09]/10 overflow-hidden">
-        {/* Inner marble container */}
+
+        {/* Inner Marble Container */}
         <div className="relative overflow-hidden rounded-2xl">
-          {/* Marble background with 60% opacity */}
+
+          {/* Marble background */}
           <div 
             className="absolute inset-0 opacity-50 z-0"
             style={{
@@ -71,9 +73,10 @@ export default function DressCodeSection({ selectedColor, setSelectedColor }: Dr
             }}
           />
           
-          {/* Content container with blur effect */}
+          {/* Content Container */}
           <div className="relative z-10 backdrop-blur-sm p-6">
-            {/* Palette Icon */}
+
+            {/* Palette Icons */}
             <div className="flex justify-center mb-3">
               <FontAwesomeIcon 
                 icon={faPalette} 

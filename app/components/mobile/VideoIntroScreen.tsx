@@ -89,7 +89,11 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
   }, [onComplete]);
 
   return (
-    <div className="absolute inset-0 bg-black z-50 flex items-center justify-center">
+    <div className="absolute inset-0 bg-black z-50 flex items-center justify-center"
+    style={{ backgroundImage: "url('/floral.webp')", backgroundSize: 'cover'}}
+      >
+         <div className="absolute inset-0 backdrop-blur-[2px]"></div>
+
       {/* Loading Screen */}
       <AnimatePresence>
         {isLoading && (
@@ -97,20 +101,24 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="absolute inset-0 flex flex-col items-center justify-center"
+            className="absolute inset-0 flex flex-col items-center justify-center p-6"
           >
-            <div className="text-white font-ophelia font-bold tracking-widest mb-4">Preparing your Invitation...</div>
-            <div className="w-3/4 h-2 bg-gray-700 rounded-full overflow-hidden">
+            <div className="w-full max-w-4xl bg-white/10 p-6 shadow-2xl rounded-4xl flex flex-col items-center justify-center">
+            <div className="w-full bg-white/70 backdrop-blur-xs rounded-3xl shadow-sm flex flex-col items-center justify-center">
+            <div className="text-[#0a0a09]/90 font-ophelia font-bold tracking-widest mt-6 mb-4">Preparing your Invitation...</div>
+            <div className="w-3/4 h-2 bg-[#0a0a09]/90 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-white"
+                className="h-full bg-[#e0b553]"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.3 }}
               />
             </div>
-            <div className="text-white font-ophelia font-bold tracking-widest mt-4">{Math.round(progress)}%</div>
+            <div className="text-[#0a0a09]/90 font-ophelia font-bold tracking-widest mt-4 mb-4">{Math.round(progress)}%</div>
+            </div>
+            </div>
 
-            <div className="absolute bottom-4 text-white/90 text-md font-poppins-light mb-[20%] z-50">
+            <div className="absolute bottom-4 text-[#0a0a09]/90 text-md font-poppins-light mb-[20%] z-50">
               <a 
                 href="https://digi.reb.ac" 
                 target="_blank" 
@@ -149,9 +157,10 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
       {/* Invitation Card */}
       {!isLoading && !showVideo && (
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 pt-6 pb-10"
-          style={{ backgroundImage: "url('/marble.webp')", backgroundSize: 'cover' }}
+          style={{ backgroundImage: "url('/floral.webp')", backgroundSize: 'cover' }}
         >
           <div className="relative text-center w-full max-w-md mx-6 p-6 rounded-3xl shadow-sm border border-[#0a0a09]/10 overflow-hidden">
+
             {/* Blurred background container */}
             <div 
               className="absolute inset-0 bg-cover bg-center blur-lg scale-110 transition-all duration-1000 z-0"
@@ -163,7 +172,8 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
             
             {/* Content container */}
             <div className="relative z-10 backdrop-blur-sm rounded-2xl">
-              {/* Photo Background with overlay */}
+
+              {/* Photo Background */}
               <div 
                 className="relative h-64 w-full rounded-tl-2xl rounded-tr-2xl"
                 style={{

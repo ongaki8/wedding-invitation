@@ -18,7 +18,7 @@ export default function DesktopRSVPScreen() {
   });
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Handle keyboard input
+  // Keyboard Input
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (/^[0-9]$/.test(e.key)) {
       const num = e.key;
@@ -139,7 +139,8 @@ export default function DesktopRSVPScreen() {
         <div className="w-full max-w-xl px-8 py-10">
           <div className="bg-white/20 backdrop-blur-xs rounded-4xl border border-black/10 shadow-lg overflow-hidden">
             <div className="p-8 flex flex-col items-center">
-              {/* Header */}
+
+              {/* Enter PIN */}
               <div className="flex flex-col items-center">
                 <Lock className={`w-10 h-10 text-[#e0b553] mb-3 ${shake ? "animate-shake" : ""}`} />
                 <h2 className="text-2xl font-bold text-[#0a0a09]/90 font-ophelia tracking-wider">
@@ -150,16 +151,16 @@ export default function DesktopRSVPScreen() {
                 </p>
               </div>
 
-              {/* PIN Dots Display */}
+              {/* PIN Dots */}
               <div className={`w-full px-6 py-4 mb-2 rounded-lg transition-all ${
-                error ? 'bg-red-50/50' : 'bg-white/50'
+                error ? 'bg-red-50/50 border-1 border-red-500/70' : 'bg-white/50'
               } ${shake ? 'animate-shake' : ''}`}>
                 {renderPinDots()}
               </div>
 
               {/* Error Message */}
               {error && (
-                <p className="text-red-500 text-sm mb-4 font-bold font-ophelia tracking-wider">
+                <p className="text-red-500 text-sm my-4 font-bold font-ophelia tracking-wider">
                   Incorrect PIN. Please try again.
                 </p>
               )}
@@ -172,14 +173,19 @@ export default function DesktopRSVPScreen() {
                     onClick={() => handleNumberPress(num.toString(), index)}
                     className="aspect-square flex items-center justify-center relative rounded-lg transition-all"
                   >
-                    <div className={`absolute inset-0 rounded-full border-1 border-amber-300 bg-[#e0b553]/10 ${
-                      activeButton === index ? 'opacity-100' : 'opacity-0'
-                    } transition-opacity duration-100`} />
-                    <div className="w-22 h-22 rounded-full border border-[#0a0a09]/20 flex items-center justify-center relative z-10">
-                    <span className="text-2xl font-bold text-[#0a0a09]/80 font-classyvogue">
-                      {num}
-                    </span>
-                    </div>
+                    <div className="relative w-22 h-22">
+
+                        <div className={`absolute w-full h-full rounded-full border-1 border-[#e0b553] bg-[#e0b553]/10 ${
+                          activeButton === index ? 'opacity-100' : 'opacity-0'
+                        } transition-opacity duration-100`} />
+                        
+                        <div className="w-full h-full rounded-full border border-[#0a0a09]/20 hover:bg-[#e0b553]/5 hover:border-[#e0b553]/90 flex items-center justify-center relative z-10 cursor-pointer">
+                          <span className="text-2xl font-bold text-[#0a0a09]/80 font-classyvogue">
+                            {num}
+                          </span>
+                        </div>
+
+                      </div>
                   </button>
                 ))}
 
@@ -191,20 +197,20 @@ export default function DesktopRSVPScreen() {
                   onClick={() => handleNumberPress("0", 9)}
                   className="aspect-square flex items-center justify-center relative rounded-lg transition-all"
                 >
-                  <div className={`absolute inset-0 rounded-full border-1 border-amber-300 bg-[#e0b553]/10 ${
+                  <div className={`absolute inset-0 rounded-full border-0 border-amber-300 bg-[#e0b553]/10 ${
                     activeButton === 9 ? 'opacity-100' : 'opacity-0'
                   } transition-opacity duration-100`} />
-                  <div className="w-22 h-22 rounded-full border border-[#0a0a09]/20 flex items-center justify-center relative z-10">
+                  <div className="w-22 h-22 rounded-full border border-[#0a0a09]/20 hover:bg-[#e0b553]/5 hover:border-[#e0b553]/90 flex items-center justify-center relative z-10 cursor-pointer">
                   <span className="text-2xl font-bold text-[#0a0a09]/80 font-classyvogue">
                     0
                   </span>
                   </div>
                 </button>
 
-                {/* Backspace Button */}
+                {/* Delete Button */}
                 <button
                   onClick={handleDelete}
-                  className="aspect-square flex items-center justify-center text-[#0a0a09]/70 hover:text-[#0a0a09]/90 transition-colors"
+                  className="aspect-square flex items-center justify-center text-[#0a0a09]/70 hover:text-red-500 transition-colors cursor-pointer"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" />
@@ -212,11 +218,11 @@ export default function DesktopRSVPScreen() {
                 </button>
               </div>
 
-              {/* Footer */}
+              {/* Cancel */}
               <div className="mt-6 flex justify-center w-full">
                 <button
                   onClick={() => setShowPinScreen(false)}
-                  className="text-md font-ophelia tracking-wider font-bold text-[#0a0a09]/80 hover:text-[#0a0a09] transition-colors px-4 py-2 cursor-pointer"
+                  className="text-md font-ophelia tracking-wider font-bold text-[#0a0a09]/80 hover:text-red-500 transition-colors px-4 py-2 cursor-pointer"
                 >
                   Cancel (ESC)
                 </button>
@@ -245,6 +251,7 @@ export default function DesktopRSVPScreen() {
 
   return (
   <div className="h-full w-full relative flex flex-col items-center justify-center overflow-hidden">
+
     {/* Video Background */}
     <div className="absolute inset-0">
       <video
@@ -284,7 +291,7 @@ export default function DesktopRSVPScreen() {
           </p>
         </div>
         
-        {/* RSVP Button Container */}
+        {/* RSVP Button */}
         <div className="w-full flex justify-center mt-8 mb-[5%]">
           <button
             onClick={() => {

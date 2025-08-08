@@ -7,9 +7,11 @@ export default function GiftSection() {
       
       {/* Outer white container */}
       <div className="relative text-center max-w-xs mx-auto bg-white/60 p-4 rounded-3xl shadow-sm border border-[#0a0a09]/10 overflow-hidden">
+
         {/* Inner marble container */}
         <div className="relative overflow-hidden rounded-2xl">
-          {/* Marble background with 60% opacity */}
+
+          {/* Marble background */}
           <div 
             className="absolute inset-0 opacity-50 z-0"
             style={{
@@ -19,8 +21,9 @@ export default function GiftSection() {
             }}
           />
           
-          {/* Content container with blur effect */}
+          {/* Content container */}
           <div className="relative z-10 backdrop-blur-sm p-6">
+            
             {/* Gift icon */}
             <div className="flex justify-center mb-3">
               <Gift 

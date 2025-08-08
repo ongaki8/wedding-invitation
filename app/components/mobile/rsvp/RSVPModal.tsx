@@ -39,6 +39,7 @@ const INITIAL_FORM_DATA = {
 const SuccessModal = ({ onClose, attending, email, emailSent }: SuccessModalProps) => (
   <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-10 animate-fadeIn">
     <div className="relative bg-white/95 rounded-2xl shadow-xl max-w-md w-full p-8 animate-scaleIn">
+
       {/* Marble Background */}
       <div 
         className="absolute inset-0 rounded-2xl opacity-50 z-0"
@@ -182,7 +183,7 @@ export default function RSVPModal({
       }
 
       const { error } = await rsvpClient
-        .from('rsvps')
+        .from('rsvp')
         .insert([{
           name: formData.name,
           email: formData.email,
@@ -193,7 +194,7 @@ export default function RSVPModal({
 
       if (error) throw error;
 
-      // Send confirmation email via API route
+      // Confirmation email via API route
       const emailResponse = await fetch('/api/rsvp', {
         method: 'POST',
         headers: {
@@ -291,6 +292,7 @@ export default function RSVPModal({
             
             <form onSubmit={handleSubmit} noValidate>
               <div className="space-y-4 mb-6">
+
                 {/* Attendance Selection */}
                 <div className="flex flex-col space-y-3 mb-4">
                   <p className="text-sm font-ophelia font-bold text-[#0a0a09]/80 mb-3 text-left">
@@ -419,7 +421,7 @@ export default function RSVPModal({
                 </div>
               )}
 
-              {/* Form Actions */}
+              {/* Form Buttons */}
               <div className="flex justify-center space-x-4">
                 <button
                   type="button"

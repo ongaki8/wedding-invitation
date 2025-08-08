@@ -22,6 +22,7 @@ export default function DesktopRSVPScreen() {
 
   return (
     <div className="h-full w-full relative flex flex-col items-center justify-center overflow-hidden">
+      
       {/* Video Background */}
       <div className="absolute inset-0">
         <video

@@ -3,7 +3,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import MobileInvitationScreen from './components/mobile/InvitationScreen';
-import MobileProgramScreen from './components/mobile/ProgramScreen';
 import MobileDetailsScreen from './components/mobile/DetailsScreen';
 import MobileRSVPScreen from './components/mobile/RSVPScreen';
 import MobileDateScreen from './components/mobile/DateScreen';
@@ -61,6 +60,7 @@ export default function MobileInvitationApp() {
 
   return (
     <div className="h-full w-full relative">
+
       {/* Video Intro Screen */}
       <AnimatePresence>
         {showIntro && (
@@ -68,7 +68,7 @@ export default function MobileInvitationApp() {
         )}
       </AnimatePresence>
 
-      {/* Main App Screens */}
+      {/* App Screens */}
       {!showIntro && (
         <>
           <AnimatePresence custom={direction} initial={false}>

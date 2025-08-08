@@ -146,7 +146,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Fancy scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

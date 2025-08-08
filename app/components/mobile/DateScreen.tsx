@@ -70,8 +70,9 @@ export default function MobileDateScreen() {
         </div>
       </div>
 
-      {/* Date and Couple Names */}
+      {/* Date and Names */}
       <div className="flex-1 w-full flex flex-col items-center justify-start px-6 pt-8 pb-12">
+
         {/* Date */}
         <h1 
           className="text-4xl md:text-5xl mb-1 font-ophelia animate-fadeIn opacity-0 text-[#0a0a09]/80" 
@@ -83,7 +84,7 @@ export default function MobileDateScreen() {
           01.01.2026
         </h1>
 
-        {/* Elements */}
+        {/* Divider */}
         <div 
           className="animate-fadeIn opacity-0 flex items-center space-x-4 mb-4"
           style={{ 
@@ -96,7 +97,7 @@ export default function MobileDateScreen() {
           <div className="w-16 h-px bg-[#0a0a09]/80"></div>
         </div>
 
-        {/* Couple Names */}
+        {/* Kim & Anesu */}
         <div 
           className="animate-fadeIn opacity-0 mb-2" 
           style={{ 
@@ -128,7 +129,6 @@ export default function MobileDateScreen() {
 
       </div>
 
-      {/* Global styles */}
       <style jsx global>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }

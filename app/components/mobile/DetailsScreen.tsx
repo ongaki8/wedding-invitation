@@ -48,7 +48,8 @@ export default function MobileDetailsScreen() {
   return (
     <div className="relative w-full h-full overflow-y-auto">
       <div className="fixed inset-0 z-0">
-        {/* Background image with animation */}
+
+        {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -66,7 +67,7 @@ export default function MobileDetailsScreen() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
       </div>
 
-      {/* Header with blurred background */}
+      {/* Header */}
       
     <div className="fixed top-0 left-0 right-0 z-20 pt-4 pb-2 backdrop-blur-md border-b border-b-white/5 bg-gradient-to-b from-black/20 via-black/10 to-transparent shadow-lg shadow-black/20">
             <div className="max-w-md mx-auto px-6">
@@ -111,7 +112,7 @@ export default function MobileDetailsScreen() {
           </div>
         </div>
 
-        {/* Scroll Down indicator */}
+        {/* Scroll Down */}
         <div 
           className="animate-fadeIn opacity-0" 
           style={{ 

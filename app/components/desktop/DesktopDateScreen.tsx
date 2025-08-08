@@ -25,18 +25,19 @@ export default function DesktopDateScreen() {
       className="relative h-full w-full flex items-center justify-center p-20"
       style={{ backgroundImage: "url('/desktop-marble.webp')", backgroundSize: 'cover' }}
     >
-      {/* Left Section: Photos Slideshow */}
+      {/* Photo Slideshow */}
       <div className="relative w-1/2 h-full rounded-3xl overflow-hidden shadow-lg mr-12">
-        {/* Blurred background */}
+
+        {/* Blurred Background */}
         <div 
           className="absolute inset-0 bg-cover bg-center blur-lg scale-110 transition-all duration-1000"
           style={{ backgroundImage: `url('${venuePhotos[currentSlide]}')` }}
         ></div>
         
-        {/* Gradient overlay */}
+        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-transparent"></div>
         
-        {/* Current slide */}
+        {/* Current Slide */}
         <div className="relative z-10 h-full w-full flex items-center justify-center p-12 transition-opacity duration-1000">
           <div 
             className="h-full w-full max-w-2xl bg-cover bg-center rounded-xl shadow-lg transition-all duration-500 hover:scale-[1.02] cursor-pointer"
@@ -44,7 +45,7 @@ export default function DesktopDateScreen() {
           ></div>
         </div>
         
-        {/* Slide indicators */}
+        {/* Slide Indicators */}
         <div className="absolute bottom-5 left-0 right-0 z-20 flex justify-center gap-2">
           {venuePhotos.map((_, index) => (
             <button
@@ -56,8 +57,9 @@ export default function DesktopDateScreen() {
         </div>
       </div>
 
-      {/* Right Section: Date and Couple Names */}
+      {/* Date and Names */}
       <div className="w-1/2 h-full flex flex-col items-center justify-center px-12">
+
         {/* Date */}
         <h1 
           className="text-7xl mb-8 font-ophelia animate-fadeIn opacity-0 text-[#0a0a09]/80" 
@@ -69,7 +71,7 @@ export default function DesktopDateScreen() {
           01.01.2026
         </h1>
 
-        {/* Decorative elements */}
+        {/* Divider */}
         <div 
           className="animate-fadeIn opacity-0 flex items-center space-x-8 mb-12"
           style={{ 
@@ -82,7 +84,7 @@ export default function DesktopDateScreen() {
           <div className="w-32 h-px bg-[#0a0a09]/80"></div>
         </div>
 
-        {/* Couple names */}
+        {/* Kim & Anesu */}
         <div 
           className="animate-fadeIn opacity-0" 
           style={{ 
@@ -96,7 +98,6 @@ export default function DesktopDateScreen() {
         </div>
       </div>
 
-      {/* Global styles */}
       <style jsx global>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }

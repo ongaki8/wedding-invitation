@@ -24,7 +24,8 @@ export default function MobileRSVPScreen() {
 
   return (
     <div className="h-screen w-full relative flex flex-col items-center justify-center overflow-hidden">
-      {/* Video background with fallback */}
+
+      {/* Video background */}
       <div className="absolute inset-0">
         <video
           ref={videoRef}
@@ -43,15 +44,16 @@ export default function MobileRSVPScreen() {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/10 to-white/70"></div>
       
-      {/* Main content - Centered container */}
+      {/* Main Content Container */}
       <div className="relative z-10 w-full flex flex-col items-center justify-center h-full px-6">
         <div className="flex flex-col items-center justify-center transform -translate-y-8">
+
           {/* "Please" text */}
           <p className="text-3xl font-brittany text-[#0a0a09]/80 tracking-widest mb-14 mt-[20%]">
             Please
           </p>
           
-          {/* Centered RSVP text */}
+          {/* RSVP text */}
           <div className="flex flex-col items-center justify-center">
             <div className="text-[12rem] leading-[0.8] tracking-[0.1em] font-bold font-ophelia text-[#e0b553] text-center">
               <span className="block transform translate-x-1">RS</span>
@@ -70,7 +72,7 @@ export default function MobileRSVPScreen() {
             RSVP NOW
           </button>
 
-          {/* Scroll Down indicator */}
+          {/* Scroll Down */}
           <div 
             className="animate-fadeIn opacity-0" 
             style={{ 

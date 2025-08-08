@@ -1,6 +1,6 @@
 'use client';
 import { motion, useAnimation } from 'framer-motion';
-import { Info, Mail, Calendar, Home, Code } from 'react-feather';
+import { Info, Code } from 'react-feather';
 import { Calendar1, MailOpen, CheckCheck } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -65,7 +65,7 @@ export default function DesktopNavigationDots({
 
   return (
     <>
-      {/* Developer Info Button */}
+      {/* digiREB Info Icon */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export default function DesktopNavigationDots({
             </motion.span>
           </motion.button>
 
-          {/* Developer Menu Popup */}
+          {/* digiREB Popup */}
           {isDevMenuOpen && (
             <motion.div 
               initial={{ opacity: 0, y: 15 }} 
@@ -101,7 +101,7 @@ export default function DesktopNavigationDots({
               transition={{ type: "spring", damping: 20, stiffness: 300 }}
               className="absolute right-0 bottom-full mb-4.5 bg-black/85 backdrop-blur-sm text-gray-100 rounded-2xl p-0 shadow-2xl w-100 border-1 border-white/40 overflow-hidden"
             >
-              {/* Top Banner with Image */}
+              {/* digiREB Banner */}
               <div 
                 className="w-full h-21 bg-cover bg-center border-b border-white/20" 
                 style={{ backgroundImage: "url('/digireb-logo.webp')" }}

@@ -118,9 +118,11 @@ export default function MobileRSVPScreen() {
         }}
       >
         <div className="w-full h-full rounded-3xl bg-white/60 border border-black/20 backdrop-blur-md flex items-center justify-center">
+
           {/* PIN Entry Screen */}
           <div className="w-full max-w-sm px-6 z-10">
             <div className="flex flex-col items-center justify-center">
+              
               {/* Lock icon */}
               <div className="pt-6 mb-4">
                 <LockIcon
@@ -155,8 +157,8 @@ export default function MobileRSVPScreen() {
                     className="aspect-square flex items-center justify-center relative"
                   >
                     <div
-                      className={`absolute inset-0 rounded-full bg-[#e0b553] opacity-0 transition-opacity duration-100 ${
-                        activeButton === index ? "opacity-30" : ""
+                      className={`absolute inset-0 rounded-full border-1 border-[#e0b553] bg-[#e0b553]/10 transition-opacity duration-100 ${
+                        activeButton === index ? "opacity-100" : "opacity-0"
                       }`}
                       style={{
                         width: "4.5rem",
@@ -270,7 +272,7 @@ export default function MobileRSVPScreen() {
 
   return (
     <div className="h-screen w-full relative flex flex-col items-center justify-center overflow-hidden">
-      {/* Video background with fallback */}
+      {/* Video background */}
       <div className="absolute inset-0">
         <video
           ref={videoRef}
@@ -293,6 +295,7 @@ export default function MobileRSVPScreen() {
       <div className="relative z-10 w-full flex flex-col items-center justify-center h-full px-6 pt-6 pb-[20%]">
         <div className="w-full max-w-4xl bg-white/10 p-6 shadow-2xl rounded-4xl flex flex-col items-center justify-center mb-[10%]">
           <div className="w-full bg-white/70 backdrop-blur-[0px] rounded-3xl flex flex-col items-center justify-center">
+
           {/* Please */}
           <p className="text-3xl font-brittany text-[#0a0a09]/80 tracking-widest mb-14 mt-[10%]">
             Please
@@ -343,7 +346,7 @@ export default function MobileRSVPScreen() {
           setShowForm={(value) => {
             setAuthenticated(value);
             if (!value) {
-              setPin([]); // Reset pin when closing the RSVP modal
+              setPin([]);
             }
           }}
           formData={formData}

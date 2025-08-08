@@ -88,28 +88,37 @@ export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: ()
   }, [onComplete]);
 
   return (
-    <div className="absolute inset-0 bg-black z-50 flex items-center justify-center">
+    <div className="absolute inset-0 bg-black z-50 flex items-center justify-center"
+      style={{ backgroundImage: "url('/desktop-floral.webp')", backgroundSize: 'cover'}}
+      >
+         <div className="absolute inset-0 backdrop-blur-xs"></div>
+
       {/* Loading Screen */}
       <AnimatePresence>
         {isLoading && (
+          
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
             className="absolute inset-0 flex flex-col items-center justify-center"
           >
-            <div className="text-white mt-4 text-xl font-ophelia tracking-widest mb-4">Preparing your invitation...</div>
-            <div className="w-1/2 h-2 bg-gray-700 rounded-full overflow-hidden">
+            <div className="w-full max-w-4xl bg-white/10 p-6 backdrop-blur-xs shadow-2xl rounded-4xl flex flex-col items-center justify-center">
+            <div className="w-full bg-white/70 backdrop-blur-xs rounded-3xl shadow-lg flex flex-col items-center justify-center">
+            <div className="text-[#0a0a09]/90 mt-10 text-xl font-ophelia tracking-widest mb-4">Preparing your invitation...</div>
+            <div className="w-1/2 h-2 bg-[#0a0a09]/90 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-white"
+                className="h-full bg-[#e0b553]"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.3 }}
               />
             </div>
-            <div className="text-white mt-4 text-xl font-ophelia tracking-widest mb-8">{Math.round(progress)}%</div>
+            <div className="text-[#0a0a09]/90 mt-4 text-xl font-ophelia tracking-widest mb-10">{Math.round(progress)}%</div>
+            </div>
+            </div>
             
-            <div className="absolute bottom-4 text-white/90 text-md font-poppins-light tracking-wide mb-10 z-50">
+            <div className="absolute bottom-4 text-[#0a0a09]/90 text-md font-poppins-light tracking-wide mb-10 z-50">
               <a 
                 href="https://digi.reb.ac" 
                 target="_blank" 
@@ -119,6 +128,7 @@ export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: ()
                 Developed by digiREB
               </a>
             </div>
+            
 
           </motion.div>
         )}
@@ -145,24 +155,26 @@ export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: ()
         </video>
       </motion.div>
 
-      {/* Invitation Card with targeted blur effect */}
+      {/* Invitation Card */}
       {!isLoading && !showVideo && (
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center"
-          style={{ backgroundImage: "url('/desktop-marble.webp')", backgroundSize: 'cover' }}
+          style={{ backgroundImage: "url('/desktop-floral.webp')", backgroundSize: 'cover' }}
         >
-          <div className="relative text-center max-w-4xl mx-auto p-8 rounded-3xl shadow-sm border border-[#0a0a09]/10 overflow-hidden">
-            {/* Blurred background container */}
+          <div className="relative text-center max-w-4xl mx-auto p-8 rounded-3xl shadow-md border border-[#0a0a09]/10 overflow-hidden">
+
+            {/* Blurred background */}
             <div 
               className="absolute inset-0 bg-cover bg-center blur-lg scale-110 transition-all duration-1000 z-0"
               style={{ backgroundImage: "url('/desktop-intro-screen.webp')" }}
             ></div>
             
-            {/* Gradient overlay */}
+            {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-transparent z-0"></div>
             
-            {/* Content container */}
+            {/* Content Container */}
             <div className="relative z-10 backdrop-blur-sm rounded-3xl">
-              {/* Photo Background with overlay */}
+
+              {/* Photo Background */}
               <div 
                 className="relative h-96 w-full rounded-tl-2xl rounded-tr-2xl"
                 style={{
@@ -174,7 +186,7 @@ export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: ()
                 <div className="absolute inset-0 bg-gradient-to-t from-black/0 via-black/0 to-transparent"></div>
               </div>
 
-              {/* Content Area */}
+              {/* Invitation */}
               <div className="text-center px-10 pt-4 pb-8 bg-white rounded-bl-2xl rounded-br-2xl">
                 <div className="flex justify-center mb-4">
                   <img 
@@ -193,7 +205,7 @@ export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: ()
                   Your presence would mean the world to us as we begin this beautiful chapter together.
                 </p>
 
-                {/* Action button */}
+                {/* Open Button */}
                 <button
                   onClick={handlePlayVideo}
                   className="w-full max-w-xs mx-auto flex items-center justify-center space-x-3 bg-[#e0b553] hover:bg-[#d0a548] text-white text-lg font-classyvogue font-bold tracking-widest py-4 px-8 rounded-xl transition-colors mb-4 cursor-pointer"
@@ -207,7 +219,7 @@ export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: ()
         </div>
       )}
 
-      {/* Skip Button with delay */}
+      {/* Skip Button */}
       {showSkipButton && (
         <button
           onClick={onComplete}
