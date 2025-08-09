@@ -8,13 +8,11 @@ export default function MobileDateScreen() {
   const [touchEnd, setTouchEnd] = useState(0);
   const slideshowRef = useRef<HTMLDivElement>(null);
   const venuePhotos = [
-    '/kim-anesu-1.webp',
     '/kim-anesu-2.webp',
     '/kim-anesu-3.webp',
     '/kim-anesu-4.webp',
     '/kim-anesu-5.webp',
     '/kim-anesu-6.webp',
-    '/kim-anesu-7.webp',
     '/kim-anesu-8.webp',
   ];
 

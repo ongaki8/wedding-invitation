@@ -7,13 +7,11 @@ export default function DesktopDateScreen() {
   const [translateX, setTranslateX] = useState(0);
   const slideRef = useRef<HTMLDivElement>(null);
   const venuePhotos = [
-    '/desktop-kim-anesu-1.webp',
     '/desktop-kim-anesu-2.webp',
     '/desktop-kim-anesu-3.webp',
     '/desktop-kim-anesu-4.webp',
     '/desktop-kim-anesu-5.webp',
     '/desktop-kim-anesu-6.webp',
-    '/desktop-kim-anesu-7.webp',
     '/desktop-kim-anesu-8.webp',
   ];
 
