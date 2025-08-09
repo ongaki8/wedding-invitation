@@ -76,16 +76,47 @@ export default function DesktopDressCodeSection({ selectedColor, setSelectedColo
               />
             </div>
 
-            <h3 className="font-roze text-2xl font-bold uppercase tracking-wider text-[#0a0a09] mb-3">
+            <h3 className="font-roze text-2xl font-bold uppercase tracking-wider text-[#0a0a09] mb-4">
               Guest Dress Code
             </h3>
             <div className="w-24 h-px bg-[#0a0a09]/40 mx-auto mb-6"></div>
+
+            {/* Formal Attire Section */}
+            <div className="my-4">
+              <div className="flex flex-col items-center justify-center space-y-4">
+                <div className="px-1 py-1 border border-[#0a0a09] rounded-xl">
+                  <div className="px-6 py-2 bg-[#0a0a09] rounded-lg shadow-xs inline-flex hover:shadow-[0_0_15px_rgba(10,10,9,0.2)] transition-shadow">
+                  <span className="font-roze text-white text-sm tracking-wider uppercase">
+                    Formal Attire
+                  </span>
+                  </div>
+                </div>
+                
+                {/* <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-[#0a0a09]/80">
+                  <div className="flex-1 text-center">
+                    <p className="font-ophelia font-medium tracking-wide mb-1">Gentlemen</p>
+                    <p className="text-sm font-ophelia text-[#0a0a09]/60">Suits & Ties</p>
+                  </div>
+                  
+                  <div className="hidden sm:block h-12 w-px bg-[#0a0a09]/20"></div>
+                  
+                  <div className="flex-1 text-center">
+                    <p className="font-ophelia font-medium tracking-wide mb-1">Ladies</p>
+                    <p className="text-sm font-ophelia text-[#0a0a09]/60">Evening Gowns or Cocktail Dresses</p>
+                  </div>
+                </div> */}
+
+              </div>
+            </div>
+
+            {/* <div className="w-24 h-px bg-[#0a0a09]/40 mx-auto mb-6"></div> */}
 
             <p className="text-[#0a0a09]/80 text-base font-ophelia tracking-wide leading-relaxed mb-6">
               We kindly encourage our guests to wear the following colors for
               our special day.
             </p>
 
+            {/* Color First Row */}
             <div className="flex justify-center gap-4 mb-6 flex-wrap">
               {firstRow.map((color, i) => (
                 <div
@@ -112,6 +143,8 @@ export default function DesktopDressCodeSection({ selectedColor, setSelectedColo
                 </div>
               ))}
             </div>
+
+            {/* Color Second Row */}
             <div className="flex justify-center gap-4 mb-6 flex-wrap">
               {secondRow.map((color, i) => (
                 <div
@@ -139,6 +172,7 @@ export default function DesktopDressCodeSection({ selectedColor, setSelectedColo
               ))}
             </div>
 
+            {/* Color Details */}
             <div 
               className="font-roze text-base mb-4 flex items-center justify-center gap-1 transition-colors duration-500"
               style={{ 
@@ -153,7 +187,7 @@ export default function DesktopDressCodeSection({ selectedColor, setSelectedColo
           </div>
         </div>
       </div>
-      
+
       <style jsx>{`
         @keyframes pulse-scale {
           0% { transform: scale(1); }

@@ -45,6 +45,13 @@ export default function MobileDetailsScreen() {
     };
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="relative w-full h-full overflow-y-auto">
       <div className="fixed inset-0 z-0">
@@ -105,7 +112,8 @@ export default function MobileDetailsScreen() {
         <div className="mt-4 mb-8 relative z-20 opacity-0" 
               style={{ 
                 animation: 'fadeIn 0.5s ease-in 0.5s forwards, bounce 2s infinite 2.5s' 
-              }}>
+              }}
+              onClick={scrollToTop}>
           <div className="flex flex-col items-center justify-center">
             <ChevronUp className="text-white/80 h-6 w-6" />
             <span className="text-xs tracking-widest font-ophelia font-bold mb-[10%]">Scroll Up</span>

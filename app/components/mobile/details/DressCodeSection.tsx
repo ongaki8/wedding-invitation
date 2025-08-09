@@ -87,7 +87,35 @@ export default function DressCodeSection({ selectedColor, setSelectedColor }: Dr
             <h3 className="font-roze text-lg font-bold uppercase tracking-wider text-[#0a0a09] mb-2">
               Guest Dress Code
             </h3>
+            
             <div className="w-20 h-px bg-[#0a0a09]/40 mx-auto mb-4"></div>
+
+            <div className="my-4">
+              <div className="flex flex-col items-center justify-center space-y-4">
+                <div className="px-1 py-1 border border-[#0a0a09] rounded-xl">
+                  <div className="px-6 py-2 bg-[#0a0a09] rounded-lg shadow-xs inline-flex hover:shadow-[0_0_15px_rgba(10,10,9,0.2)] transition-shadow">
+                  <span className="font-roze text-white text-sm tracking-wider uppercase">
+                    Formal Attire
+                  </span>
+                  </div>
+                </div>
+                
+                {/* <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-[#0a0a09]/80">
+                  <div className="flex-1 text-center">
+                    <p className="font-ophelia font-medium tracking-wide mb-1">Gentlemen</p>
+                    <p className="text-sm font-ophelia text-[#0a0a09]/60">Suits & Ties</p>
+                  </div>
+                  
+                  <div className="hidden sm:block h-12 w-px bg-[#0a0a09]/20"></div>
+                  
+                  <div className="flex-1 text-center">
+                    <p className="font-ophelia font-medium tracking-wide mb-1">Ladies</p>
+                    <p className="text-sm font-ophelia text-[#0a0a09]/60">Evening Gowns or Cocktail Dresses</p>
+                  </div>
+                </div> */}
+
+              </div>
+            </div>
 
             <p className="text-[#0a0a09]/80 text-sm font-ophelia tracking-wide leading-relaxed mb-4">
               We kindly encourage our guests to wear the following colors for
@@ -159,6 +187,7 @@ export default function DressCodeSection({ selectedColor, setSelectedColor }: Dr
                 Tap on any color to view details
               </span>
             </div>
+
           </div>
         </div>
       </div>
