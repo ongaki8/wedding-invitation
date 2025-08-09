@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useState, useEffect } from "react";
 import DressCodeSection from "./details/DressCodeSection";
 import TransportationSection from "./details/TransportationSection";
@@ -11,6 +12,7 @@ export default function MobileDetailsScreen() {
     scale: 1,
     translateX: 0
   });
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const duration = 15000;
@@ -46,16 +48,17 @@ export default function MobileDetailsScreen() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
-    <div className="relative w-full h-full overflow-y-auto">
+    <div className="relative w-full h-full overflow-y-auto" ref={scrollContainerRef}>
       <div className="fixed inset-0 z-0">
-
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -75,17 +78,15 @@ export default function MobileDetailsScreen() {
       </div>
 
       {/* Header */}
-      
-    <div className="fixed top-0 left-0 right-0 z-20 pt-4 pb-2 backdrop-blur-md border-b border-b-white/5 bg-gradient-to-b from-black/20 via-black/10 to-transparent shadow-lg shadow-black/20">
-            <div className="max-w-md mx-auto px-6">
-              <div className="text-center">
-                <div className="font-roze font-bold text-3xl tracking-widest text-white">
-                  DETAILS
-                </div>
-                {/* <div className="mt-4 mx-auto w-24 h-px bg-white/30"></div> */}
-              </div>
+      <div className="fixed top-0 left-0 right-0 z-20 pt-4 pb-2 backdrop-blur-md border-b border-b-white/5 bg-gradient-to-b from-black/20 via-black/10 to-transparent shadow-lg shadow-black/20">
+        <div className="max-w-md mx-auto px-6">
+          <div className="text-center">
+            <div className="font-roze font-bold text-3xl tracking-widest text-white">
+              DETAILS
             </div>
           </div>
+        </div>
+      </div>
 
       {/* Scrollable Content */}
       <div className="relative z-10 max-w-md mx-auto px-6 pt-18 pb-12 text-white min-h-screen">
@@ -102,21 +103,17 @@ export default function MobileDetailsScreen() {
           </div>
         </div>
 
-        {/* <div className="mt-10 text-center">
-          <div className="inline-block font-roze font-bold text-sm text-white tracking-wider">
-            WE CAN'T WAIT TO CELEBRATE WITH YOU
-          </div>
-        </div> */}
-
         {/* Scroll Up */}
-        <div className="mt-4 mb-8 relative z-20 opacity-0" 
-              style={{ 
-                animation: 'fadeIn 0.5s ease-in 0.5s forwards, bounce 2s infinite 2.5s' 
-              }}
-              onClick={scrollToTop}>
-          <div className="flex flex-col items-center justify-center">
+        <div 
+          className="mt-4 mb-8 relative z-20 opacity-0 cursor-pointer" 
+          style={{ 
+            animation: 'fadeIn 0.5s ease-in 0.5s forwards, bounce 2s infinite 2.5s' 
+          }}
+          onClick={scrollToTop}
+        >
+          <div className="flex flex-col items-center justify-center mt-10 mb-4">
             <ChevronUp className="text-white/80 h-6 w-6" />
-            <span className="text-xs tracking-widest font-ophelia font-bold mb-[10%]">Scroll Up</span>
+            <span className="text-xs tracking-widest font-ophelia font-bold">Scroll Up</span>
           </div>
         </div>
 
@@ -133,7 +130,6 @@ export default function MobileDetailsScreen() {
             <span className="text-sm tracking-widest font-ophelia text-[#0a0a09]/0">See you there</span>
           </div>
         </div>
-        
       </div>
 
       {/* Color Modal */}

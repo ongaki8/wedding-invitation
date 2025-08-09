@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useState, useEffect } from "react";
 import DressCodeSection from "./details/DesktopDressCodeSection";
 import TransportationSection from "./details/DesktopTransportationSection";
@@ -11,6 +12,7 @@ export default function DesktopDetailsScreen() {
     scale: 1,
     translateX: 0
   });
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const duration = 15000;
@@ -43,6 +45,15 @@ export default function DesktopDetailsScreen() {
     };
   }, []);
 
+  const scrollToTop = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="relative w-full h-screen overflow-hidden">
       <div className="fixed inset-0 z-0">
@@ -72,7 +83,7 @@ export default function DesktopDetailsScreen() {
         </div>
       </div>
 
-      <div className="relative z-10 h-full pt-12 pb-24 overflow-y-auto">
+      <div className="relative z-10 h-full pt-12 pb-24 overflow-y-auto" ref={scrollContainerRef}>
         <div className="max-w-5xl mx-auto px-12 text-white min-h-full">
           <div className="relative pl-0">
             <div className="absolute left-1/2 transform -translate-x-1/2 h-[90%] w-0.5 bg-white/80"></div>
@@ -87,13 +98,16 @@ export default function DesktopDetailsScreen() {
             </div>
 
             {/* Scroll Up */}
-            <div className="mt-8 mb-16 relative z-20 opacity-0" 
-                  style={{ 
-                    animation: 'fadeIn 0.5s ease-in 0.5s forwards, bounce 2s infinite 2.5s' 
-                  }}>
+            <div 
+              className="mt-8 mb-16 relative z-20 opacity-0 cursor-pointer hover:opacity-100 transition-opacity duration-300" 
+              style={{ 
+                animation: 'fadeIn 0.5s ease-in 0.5s forwards, bounce 2s infinite 2.5s' 
+              }}
+              onClick={scrollToTop}
+            >
               <div className="flex flex-col items-center justify-center">
-                <ChevronUp className="text-white/80 h-8 w-8" />
-                <span className="text-sm tracking-widest font-ophelia font-bold">Scroll Up</span>
+                <ChevronUp className="text-white/80 h-8 w-8 hover:text-white transition-colors" />
+                <span className="text-sm tracking-widest font-ophelia font-bold hover:text-white transition-colors">Scroll Up</span>
               </div>
             </div>
           </div>

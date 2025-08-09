@@ -87,14 +87,14 @@ export default function DressCodeSection({ selectedColor, setSelectedColor }: Dr
             <h3 className="font-roze text-lg font-bold uppercase tracking-wider text-[#0a0a09] mb-2">
               Guest Dress Code
             </h3>
-            
+
             <div className="w-20 h-px bg-[#0a0a09]/40 mx-auto mb-4"></div>
 
             <div className="my-4">
               <div className="flex flex-col items-center justify-center space-y-4">
                 <div className="px-1 py-1 border border-[#0a0a09] rounded-xl">
                   <div className="px-6 py-2 bg-[#0a0a09] rounded-lg shadow-xs inline-flex hover:shadow-[0_0_15px_rgba(10,10,9,0.2)] transition-shadow">
-                  <span className="font-roze text-white text-sm tracking-wider uppercase">
+                  <span className="font-roze font-bold text-white text-sm tracking-wider uppercase">
                     Formal Attire
                   </span>
                   </div>
