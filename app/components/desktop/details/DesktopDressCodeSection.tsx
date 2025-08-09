@@ -113,7 +113,7 @@ export default function DesktopDressCodeSection({ selectedColor, setSelectedColo
 
             <p className="text-[#0a0a09]/80 text-base font-ophelia tracking-wide leading-relaxed mb-6">
               We kindly encourage our guests to wear the following colors for
-              our special day.
+              our special day. Men are welcome to wear black suits.
             </p>
 
             {/* Color First Row */}

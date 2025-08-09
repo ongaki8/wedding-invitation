@@ -119,7 +119,7 @@ export default function DressCodeSection({ selectedColor, setSelectedColor }: Dr
 
             <p className="text-[#0a0a09]/80 text-sm font-ophelia tracking-wide leading-relaxed mb-4">
               We kindly encourage our guests to wear the following colors for
-              our special day.
+              our special day. Men are welcome to wear black suits.
             </p>
 
             {/* Palette */}
