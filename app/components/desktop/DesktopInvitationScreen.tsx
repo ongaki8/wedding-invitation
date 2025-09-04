@@ -105,7 +105,7 @@ export default function DesktopInvitationScreen() {
 
           <div className="flex flex-col justify-center items-center border-t border-b border-white/60 py-4 animate-fadeIn opacity-0" style={{ animationDelay: '0.85s', animationFillMode: 'forwards' }}>
             <span className="uppercase text-xl tracking-widest font-ophelia">
-              At 1:00 PM
+              At 11:00 AM
             </span>
           </div>
         </div>

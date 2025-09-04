@@ -1,7 +1,9 @@
+// DesktopVideoIntroScreen.tsx
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail } from 'react-feather';
+import { useAudio } from '@/contexts/AudioContext';
 
 export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: () => void }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -10,6 +12,7 @@ export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: ()
   const [showSkipButton, setShowSkipButton] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressInterval = useRef<NodeJS.Timeout | null>(null);
+  const { playAudio } = useAudio();
 
   const handlePlayVideo = async () => {
     const video = videoRef.current;
@@ -19,6 +22,7 @@ export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: ()
       await video.play();
       setShowVideo(true);
       setShowSkipButton(true);
+      playAudio(); // Start playing the audio when video starts
     } catch (error) {
       console.error("Error playing video:", error);
       onComplete();
@@ -43,7 +47,9 @@ export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: ()
       progressInterval.current = setInterval(() => {
         simulatedProgress += 3;
         if (simulatedProgress >= 100) {
-          clearInterval(progressInterval.current as NodeJS.Timeout);
+          if (progressInterval.current) {
+            clearInterval(progressInterval.current);
+          }
           progressInterval.current = null;
           setIsLoading(false);
         }
@@ -55,8 +61,8 @@ export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: ()
       if (video.buffered.length > 0) {
         if (progressInterval.current) {
           clearInterval(progressInterval.current);
-          progressInterval.current = null;
         }
+        progressInterval.current = null;
         const loaded = video.buffered.end(0);
         const duration = video.duration || 1;
         const newProgress = (loaded / duration) * 100;

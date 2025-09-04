@@ -106,7 +106,7 @@ export default function MobileInvitationScreen() {
 
           <div className="flex flex-col justify-center items-center border-t border-b border-white/60 py-2 animate-fadeIn opacity-0" style={{ animationDelay: '0.85s', animationFillMode: 'forwards' }}>
             <span className="uppercase text-md tracking-widest font-ophelia font-bold">
-              At 1:00 PM
+              At 11:00 AM
             </span>
           </div>
         </div>

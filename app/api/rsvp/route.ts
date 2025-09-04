@@ -140,7 +140,7 @@ export async function POST(request: Request) {
                                 </tr>
                                 <tr>
                                     <td style="padding: 8px 5px; color: #b5824e; font-weight: 500; text-align: right;">Time:</td>
-                                    <td style="padding: 8px 5px;">1:00 PM</td>
+                                    <td style="padding: 8px 5px;">11:00 AM</td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 8px 5px; color: #b5824e; font-weight: 500; text-align: right;">Venue:</td>
@@ -287,7 +287,7 @@ export async function POST(request: Request) {
                         </div>
                         <p style="font-size: 14px; color: #888; margin-bottom: 5px;">SAVE THE DATE</p>
                         <div style="display: inline-block; background: #f9f5f0; padding: 8px 15px; border-radius: 20px;">
-                            <p style="margin: 0; font-weight: 500; color: #d0a548; font-size: 15px;">January 1, 2026 • 1:00 PM</p>
+                            <p style="margin: 0; font-weight: 500; color: #d0a548; font-size: 15px;">January 1, 2026 • 11:00 AM</p>
                         </div>
                     </div>
                     ` : ''}

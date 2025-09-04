@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import MobileInvitationApp from './MobileInvitationApp';
 import DesktopInvitationApp from './DesktopInvitationApp';
+import { AudioProvider } from '../contexts/AudioContext';
 
 const fadeVariants = {
   hidden: { opacity: 0 },
@@ -25,18 +26,20 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative h-screen w-full overflow-hidden">
-      <AnimatePresence>
-        <motion.div
-          key="app-content"
-          initial="hidden"
-          animate="visible"
-          variants={fadeVariants}
-          className="absolute inset-0"
-        >
-          {isMobile ? <MobileInvitationApp /> : <DesktopInvitationApp />}
-        </motion.div>
-      </AnimatePresence>
-    </main>
+    <AudioProvider>
+      <main className="relative h-screen w-full overflow-hidden">
+        <AnimatePresence>
+          <motion.div
+            key="app-content"
+            initial="hidden"
+            animate="visible"
+            variants={fadeVariants}
+            className="absolute inset-0"
+          >
+            {isMobile ? <MobileInvitationApp /> : <DesktopInvitationApp />}
+          </motion.div>
+        </AnimatePresence>
+      </main>
+    </AudioProvider>
   );
 }

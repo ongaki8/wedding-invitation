@@ -153,7 +153,7 @@ export default function DesktopNavigationDots({
         transition={{ delay: 0.5 }}
         className="fixed bottom-8 left-0 right-0 flex justify-center z-40"
       >
-        <div className="flex space-x-8 backdrop-blur-sm bg-black/40 rounded-4xl px-8 py-3">
+        <div className="flex space-x-8 backdrop-blur-sm bg-black/40 rounded-2xl px-8 py-3">
           {screens.map((screen, index) => {
             const Icon = screenIcons[screen];
             const label = screenLabels[screen];

@@ -87,12 +87,12 @@ export default function NavigationDots({
 
   return (
     <>
-      {/* Minimize Button */}
+      {/* Minimize Button
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="fixed bottom-4 left-3.5 z-50 flex items-center"
+        className="fixed bottom-20 left-3.5 z-50 flex items-center"
       >
         <motion.div 
           className="backdrop-blur-sm bg-black/40 border-2 border-white/20 rounded-full flex items-center"
@@ -109,7 +109,7 @@ export default function NavigationDots({
             </span>
           </motion.button>
         </motion.div>
-      </motion.div>
+      </motion.div> */}
 
       {/* digiREB Info Button */}
       <motion.div

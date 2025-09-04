@@ -8,6 +8,7 @@ import MobileRSVPScreen from './components/mobile/RSVPScreen';
 import MobileDateScreen from './components/mobile/DateScreen';
 import NavigationDots from './NavigationDots';
 import VideoIntroScreen from './components/mobile/VideoIntroScreen';
+import MobileAudioControl from './components/mobile/AudioControl';
 
 type Screen = 'invitation' | 'details' | 'rsvp' | 'date';
 
@@ -71,6 +72,8 @@ export default function MobileInvitationApp() {
       {/* App Screens */}
       {!showIntro && (
         <>
+          <MobileAudioControl /> {/* Add the audio control component */}
+          
           <AnimatePresence custom={direction} initial={false}>
             <motion.div
               key={currentPage}

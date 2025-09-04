@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, ChevronDown } from 'react-feather';
+import { useAudio } from '@/contexts/AudioContext';
 
 export default function VideoIntroScreen({ onComplete }: { onComplete: () => void }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -11,6 +12,7 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
   const [showSkipButton, setShowSkipButton] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressInterval = useRef<NodeJS.Timeout | null>(null);
+  const { playAudio } = useAudio();
 
   const handlePlayVideo = async () => {
     const video = videoRef.current;
@@ -20,6 +22,7 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
       await video.play();
       setShowVideo(true);
       setShowSkipButton(true);
+      playAudio(); // Start playing the audio when video starts
     } catch (error) {
       console.error("Error playing video:", error);
       onComplete();
@@ -238,7 +241,7 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
       {showSkipButton && (
         <button
           onClick={onComplete}
-          className="absolute bottom-[12%] left-1/2 transform -translate-x-1/2 font-classyvogue tracking-wider text-sm font-bold bg-black/50 text-white border-1 border-white/20 px-4 py-2 rounded-full z-10"
+          className="absolute bottom-[12%] left-1/2 transform -translate-x-1/2 font-classyvogue tracking-wider text-sm font-bold bg-black/50 text-white border-1 border-white/20 px-4 py-2 rounded-full z-10 cursor-pointer"
         >
           SKIP VIDEO
         </button>

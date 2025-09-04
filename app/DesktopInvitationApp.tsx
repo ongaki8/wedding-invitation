@@ -1,3 +1,4 @@
+// DesktopInvitationApp.tsx (updated)
 'use client';
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,6 +8,7 @@ import DesktopRSVPScreen from './components/desktop/DesktopRSVPScreen';
 import DesktopDateScreen from './components/desktop/DesktopDateScreen';
 import DesktopNavigationDots from './DesktopNavigationDots';
 import DesktopVideoIntroScreen from './components/desktop/DesktopVideoIntroScreen';
+import DesktopAudioControl from './components/desktop/DesktopAudioControl';
 
 type Screen = 'invitation' | 'details' | 'rsvp' | 'date';
 
@@ -69,6 +71,8 @@ export default function DesktopInvitationApp() {
       {/* App Screens */}
       {!showIntro && (
         <>
+          <DesktopAudioControl /> {/* Add the audio control component */}
+          
           <AnimatePresence custom={direction} initial={false}>
             <motion.div
               key={currentPage}
