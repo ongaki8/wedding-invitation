@@ -134,6 +134,17 @@ export default function VideoIntroScreen({ onComplete }: { onComplete: () => voi
               >
                 Developed by ONG
               </a>
+
+              {/* <a
+                href="https://ongaki.website"
+                target="_blank"
+                rel="noopener"
+                className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex items-center gap-1 bg-black/0 backdrop-blur-xs px-0 py-2 rounded-xl cursor-pointer whitespace-nowrap"
+              >
+                <span className="text-sm text-[#333333] font-light">Developed by</span>
+                <img src="/logo1.png" alt="Developer logo" className="h-5 w-auto" />
+              </a>
+               */}
             </div>
 
           </motion.div>

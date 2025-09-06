@@ -128,13 +128,12 @@ export default function DesktopVideoIntroScreen({ onComplete }: { onComplete: ()
             </div>
             
             <div className="absolute bottom-4 text-[#0a0a09]/90 text-md font-poppins-light tracking-wide mb-10 z-50">
-              <a 
-                href="https://ongaki.website" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-[#e0b553] transition-colors cursor-pointer"
-              >
-                Developed by ONG
+              {/* Center-bottom logo */}
+              <a href="https://ongaki.website" target="_blank" rel="noopener">
+                <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex items-center gap-1 bg-black/0 backdrop-blur-sm px-3 py-3 rounded-xl border border-[#333333] cursor-pointer">
+                  <span className="text-sm text-[#333333] font-light">Developed by</span>
+                  <img src="/logo1.png" alt="Developer logo" className="h-5 w-auto" />
+                </div>
               </a>
             </div>
             
