@@ -89,15 +89,15 @@ export default function MobileAudioControl() {
           {/* Track Info with Thumbnail */}
           <div className="flex items-center mb-4 space-x-3">
             <Image 
-              src="/moyo.webp" 
-              alt="Moyo thumbnail" 
+              src="/how_long_will_i_love you.webp" 
+              alt="Music thumbnail" 
               width={48} 
               height={48} 
               className="rounded-lg object-cover"
             />
             <div>
               <p className="text-xs text-white/70 font-poppins-light mb-1">Now Playing</p>
-              <h3 className="text-md font-poppins-regular font-bold">MOYO - Nashie Zim</h3>
+              <h3 className="text-md font-poppins-regular font-bold">Ellie Goulding - How Long Will I Love You</h3>
             </div>
           </div>
 

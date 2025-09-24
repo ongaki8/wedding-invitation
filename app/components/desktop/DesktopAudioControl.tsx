@@ -101,13 +101,13 @@ export default function DesktopAudioControl() {
             {/* Track Info with Thumbnail */}
             <div className="flex items-center space-x-3 mb-3">
             <img
-                src="/moyo.webp"
-                alt="Moyo thumbnail"
+                src="/how_long_will_i_love you.webp"
+                alt="Music thumbnail"
                 className="w-12 h-12 rounded-lg object-cover"
             />
             <div className="flex flex-col">
                 <span className="text-xs text-white/70 font-poppins-light">Now Playing</span>
-                <span className="text-sm text-white/85 font-poppins-regular">Moyo - Nashie Zim</span>
+                <span className="text-sm text-white/85 font-poppins-regular">Ellie Goulding - How Long Will I Love You</span>
             </div>
             </div>
 

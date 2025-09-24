@@ -27,7 +27,7 @@ export const AudioProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   useEffect(() => {
     // Create audio element
-    audioRef.current = new Audio('/MOYO_Nashie_Zim.mp3');
+    audioRef.current = new Audio('/how-long-will-i-love-you.mp3');
     audioRef.current.loop = true;
     audioRef.current.volume = 1;
 
